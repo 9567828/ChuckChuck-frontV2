@@ -1,6 +1,6 @@
 # ChuckChuck 전자결재시스템
 
-# 🚀 Stack
+## 🚀 Stack
 * Next.js
 * TypeSrcipt
 * scss Modules
@@ -10,5 +10,5 @@
   * local - Zustand
 * server - maria DB
   
-# ⚙️ Delvelopemnt
+## ⚙️ Delvelopemnt
 * npm run dev
