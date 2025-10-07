@@ -40,6 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# https 인증파일
+certificates/
+*.key
+*.crt
+*.pem
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
