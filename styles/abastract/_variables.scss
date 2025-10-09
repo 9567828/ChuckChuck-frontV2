@@ -1,0 +1,53 @@
+$main-color: #FF5116;
+$main-hover-color: #F04A13;
+$bg-white: #FFFFFF;
+$bg-black: #000000;
+$bg-red: #FF3333;
+$holiday-red: #FF0000;
+$gray-800: #424242;
+$gray-700: #616161;
+$gray-600: #757575;
+$gray-500: #9E9E9E;
+$gray-400: #BDBDBD;
+$gray-300: #E0E0E0;
+$gray-200: #EEEEEE;
+$gray-100: #F5F5F5;
+
+$linehight-140: 1.4;
+$linehight-150: 1.5;
+$letterspacing-2: -0.02em;
+
+$display-size: 32px;
+$titleXl-size: 24px;
+$titleLg-size: 20px;
+$bodyMd-size: 18px;
+$bodySm-size: 16px;
+$captionXs-size: 14px;
+$captionXxs-size: 12px;
+$captionXxxs-size: 10px;
+
+$bold: 700;
+$regular: 400;
+$medium: 500;
+
+$shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+
+$display: "display";
+$titleXl: "titleXl";
+$titleLg: "titleLg";
+$bodyMd: "bodyMd";
+$bodySm: "bodySm";
+$captionXs: "captionXs";
+$captionXxs: "captionXxs";
+$captionXxxs: "captionXxxs";
+
+$font-map: (
+  display : (size: $display-size, line: $linehight-140, letter: $letterspacing-2),
+  titleXl : (size: $titleXl-size, line: $linehight-140, letter: $letterspacing-2),
+  titleLg : (size: $titleLg-size, line: $linehight-140, letter: $letterspacing-2),
+  bodyMd : (size: $bodyMd-size, line: $linehight-150, letter: $letterspacing-2),
+  bodySm : (size: $bodySm-size, line: $linehight-150, letter: $letterspacing-2),
+  captionXs : (size: $captionXs-size, line: $linehight-150),
+  captionXxs : (size: $captionXxs-size, line: $linehight-150),
+  captionXxxs : (size: $captionXxxs-size, line: $linehight-150),
+)

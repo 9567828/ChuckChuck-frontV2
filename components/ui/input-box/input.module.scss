@@ -1,0 +1,59 @@
+.input {
+  width: 520px;
+  height: 69px;
+  padding: 0 16px;
+  border: 1px solid $gray-300;
+  border-radius: 20px;
+  @include font-theme($bodyMd, $medium);
+
+  &.search { padding-left: 58px; }
+  &.small { 
+    width: 440px;
+    height: 48px;
+    padding: 0 12px;
+    border-radius: 10px;
+    @include font-theme($bodySm, $medium);
+  }
+  &.small.search {padding-left: 40px;}
+
+  &.search:focus { padding-left: 16px; }
+  &.small:focus { padding-left: 12px; }
+  &.small.search:focus { padding-left: 12px; }
+}
+
+.label {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+}
+
+.input:focus-within + .icon {
+  display: none;
+}
+
+// 생년월일
+.input-birth {
+  @extend .input;
+  width: 140px;
+  padding-right: 42px;
+}
+
+.birth-label {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: attr(data-content);
+    top: 50%;
+    right: 42px;
+    transform: translateY(-50%);
+    @include font-theme($bodyMd, $medium);
+    color: $gray-400;
+  }
+}

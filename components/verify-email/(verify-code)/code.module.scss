@@ -1,0 +1,11 @@
+.time-wrap {
+  @include flex(null, space-between, center, null);
+  margin: 8px 0 67px;
+}
+
+.resend-btn {
+  text-decoration: underline;
+  @include font-theme($captionXs, $regular);
+  color: $gray-600;
+  padding-right: 8px;
+}

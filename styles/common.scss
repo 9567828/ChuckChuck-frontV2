@@ -1,0 +1,332 @@
+.inner {
+  padding: 40px;
+  height: 100%;
+  min-height: calc(100vh - 66px);
+  background-color: #FAFAFA;
+}
+
+// account page
+.account-container {
+  width: 100%;
+  max-width: 680px;
+  height: 100%;
+  min-height: calc(100vh - 75px);
+  margin: 0 auto;
+  padding: 175px 80px 0;
+  text-align: center;
+}
+
+// 프로필 이미지
+.avatar-wrap {
+  display: inline-block;
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: $gray-300;
+  overflow: hidden;
+}
+
+.avatar-wrap.border {
+  border: 2px solid $main-color;
+}
+
+.avatar-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-wrap span {
+  position: absolute;
+  @include font-theme($bodyMd, $bold);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 관리자페이지 */
+.page-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+.inner.admin {
+  background-color: $bg-white;
+}
+
+// 폰트설정
+@include gen-font-class($display);
+@include gen-font-class($titleXl);
+@include gen-font-class($titleLg);
+@include gen-font-class($bodyMd);
+@include gen-font-class($bodySm);
+@include gen-font-class($captionXs);
+@include gen-font-class($captionXxs);
+@include gen-font-class($captionXxxs);
+
+// loading 페이지
+.loading-container {
+  height: 100vh;
+  @include flex(null, center, center, null);
+  img {
+    height: 152px;
+  }
+}
+
+/* input, button 초기설정 */
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+button:disabled, button[disabled] {
+  background-color: $gray-500;
+  color: $bg-white;
+  pointer-events: none;
+}
+
+input::placeholder {
+  color: $gray-400;
+}
+
+input:focus:not([type="radio"]) {
+  outline: none;
+  border: 1px solid $bg-black !important;
+}
+
+/* 크롬 자동완성 스타일 */
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+}
+
+input:-webkit-autofill[readonly] {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-box-shadow: 0 0 0 1000px $gray-200 inset !important;
+}
+
+input[readonly] { cursor: not-allowed; }
+input[readonly]:focus { border: 1px solid #8C8C8C; }
+
+/* 인풋넘버 화살표 없애기 */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  cursor: text;
+}
+
+/* buttons */
+.edit-btn {
+  width: 64px;
+  height: 24px;
+  padding: 2px 7px;
+  border: 1px solid $gray-600;
+  border-radius: 4px;
+  background-color: $bg-white;
+  // @include captionXxs-m;
+  color: $gray-600
+}
+
+/* modal sub 버튼*/
+@include sub-btn-class('flexible', fit-content, 20px);
+@include sub-btn-class('large', 56px, 24px);
+@include sub-btn-class('regular', 40px, 20px);
+
+.sub-btn-xlarge {
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: $main-color;
+  color: $bg-white;
+  // @include bodySm-m;
+}
+
+.sub-btn-xlarge.cancel {
+  @extend .sub-btn-xlarge;
+  @include sub-btn-cancel-style;
+  color: $gray-800;
+}
+
+.sub-btn-flexible.cancel {
+  @extend .sub-btn-flexible;
+  @include sub-btn-cancel-style;
+}
+.sub-btn-large.cancel {
+  @extend .sub-btn-large;
+  @include sub-btn-cancel-style;
+}
+.sub-btn-regular.cancel {
+  @extend .sub-btn-regular;
+  @include sub-btn-cancel-style;
+}
+
+/* 일,주,월 버튼 */
+.date-pick-wrap, .date-pick {
+  @include flex(null, null, center, 6px);
+  cursor: pointer;
+}
+
+.date-pick { justify-content: center; gap: 0; }
+
+.date-btn {
+  height: 28px;
+  padding: 2px 12px;
+  border-radius: 4px;
+  border: 0.5px solid $gray-300;
+  background-color: $bg-white;
+  color: $gray-700;
+  @include font-theme($captionXs, $medium);
+  text-align: center;
+}
+
+.date-btn.on {
+  background-color: $main-color;
+  color: $bg-white;
+}
+
+.date-btn.date-day {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.date-btn.date-week { border-radius: 0; }
+
+.date-btn.date-month {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+}
+
+.toggle-btn {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  border-radius: 70px;
+  background-color: $gray-400;
+  .toggle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $bg-white;
+  }
+  &.on {
+    background-color: #426CF1;
+    .toggle {
+      left: unset;
+      right: 2px;
+    }
+  }
+}
+
+/* input */
+// 라디오 버튼
+/* 기본스타일 제거, 버튼 모양 재설정 */
+input[type='radio'] {
+  -webkit-appearance: none; /* 웹킷 브라우저에서 기본 스타일 제거*/
+  -moz-appearance: none; /* 모질라 브라우저에서 기본 스타일 제거*/ 
+  appearance: none; /*기본 브라우저에서 기본 스타일 제거*/
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc; /*체크되지 않았을 때의 테두리 색상*/
+  border-radius: 50%;
+  outline: none; /*focus 시에 나타나는 기본 스타일 제거*/
+  cursor: pointer;
+}
+// /* 체크 시 버튼 모양 스타일*/
+input[type='radio']:checked {
+  background-color: #436AF5; /*체크 시 내부 원 색상*/
+  border: 2px solid #fff; /*라인이 아닌, 라인과 원 사이 색상*/
+  box-shadow: 0 0 0 1px #436AF5; /*라인*/
+}
+
+/* 부서 셀렉트 박스 */
+.select-wrap { width: 160px; }
+.select-box {
+  width: 100%; 
+  height: 40px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid $gray-300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  .select-one {
+    @include font-theme($captionXs, $medium);
+    color: $gray-400;
+  }
+  .select-one.on {
+    color: $bg-black;
+  }
+  img { transform: rotate(90deg); }
+}
+
+.sel-options {
+  position: absolute;
+  width: 160px;
+  margin-top: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: $bg-white;
+  box-shadow: $shadow;
+  @include font-theme($captionXxs, $medium);
+  p { 
+    cursor: pointer; 
+      &:not(:last-child, .sel-options-square p) { 
+        margin-bottom: 10px; 
+    }
+  }
+}
+
+.select-box-square {
+  @extend .select-box;
+  height: auto;
+  padding: 6px 12px;
+  border-radius: 0;
+  &.active {
+    border-bottom: 0;
+    height: 35px;
+  }
+  .select-one {
+    color: $bg-black;
+  }
+}
+
+.sel-options-square {
+  @extend .sel-options;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 1px;
+  border-top: 0;
+  border-style: solid;
+  border-color: $gray-300;
+  border-radius: 0;
+  p {
+    padding: 6px 12px;
+    &.active {
+      color: $main-color;
+    }
+  }
+}
+
+/* 체크박스 */
+label:not([for^=birth]):not([for^=co]) { 
+  cursor: pointer; 
+}

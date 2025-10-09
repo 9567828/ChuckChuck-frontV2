@@ -1,0 +1,109 @@
+@use "sass:map";
+@use "sass:math";
+@use "variables" as *;
+
+@mixin flex($col, $justi, $align, $gap) {
+  display: flex;
+  @if $col {
+    flex-direction: column;
+  }
+  @if $justi {
+    justify-content: $justi
+  }
+  @if $align {
+    align-items: $align
+  }
+  @if $gap {
+    gap: $gap
+  }
+}
+
+@mixin grid-col($col, $justi, $align, $gap) {
+  display: grid;
+  @if $col {
+    grid-template-columns: $col;
+  }
+  @if $justi {
+    justify-content: $justi
+  }
+  @if $align {
+    align-items: $align
+  }
+  @if $gap {
+    gap: $gap
+  }
+}
+
+@mixin home-card {
+  margin-bottom: 8px;
+  padding: 8px 14px;
+  background-color: $bg-white;
+}
+
+@mixin font-style($size, $weight, $line, $letter: null) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: math.round($size * $line);
+  @if ($letter) {
+    letter-spacing: $letter;
+  }
+}
+
+@mixin font-theme($name, $weight) {
+  $f: map.get($font-map, $name);
+  @include font-style(
+    $size: map.get($f, size),
+    $weight: $weight,
+    $line: map.get($f, line),
+    $letter: map.get($f, letter)
+  );
+}
+
+@mixin textBtn-style($ismt:false) {
+  display: inline-block;
+  @include titleLg-r;
+  color: $gray-700;
+  @if $ismt == true {
+    margin-top: 24px;
+  }
+}
+
+@mixin font-class($size, $weight, $lineheight, $letterspacing: null) {
+  @include font-style($size, $weight, $lineheight, $letterspacing);
+}
+
+// 폰트 클래스 생성
+@mixin gen-font-class ($basename) {
+  .#{$basename}-b {
+    @include font-theme($basename, $bold);
+  }
+  .#{$basename}-m {
+    @include font-theme($basename, $medium);
+  }
+  .#{$basename}-r {
+    @include font-theme($basename, $regular);
+  }
+}
+
+@mixin modal-btn-style ($width, $height) {
+  width: $width;
+  height: $height;
+  border-radius: 3px;
+  padding: 2px 6px;
+  background-color: $main-color;
+  color: $bg-white;
+  @include font-theme($captionXxs, $medium);
+  line-height: unset;
+}
+
+@mixin sub-btn-class ($base-name, $width, $height) {
+  .sub-btn-#{$base-name} {
+    @include modal-btn-style($width, $height)
+  }
+}
+
+@mixin sub-btn-cancel-style {
+  background-color: $bg-white;
+  border: 1px solid $gray-300;
+  color: $bg-black;
+}

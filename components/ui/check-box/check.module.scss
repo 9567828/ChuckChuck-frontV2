@@ -1,0 +1,55 @@
+.container {
+  @include flex(null, null, center, 12px);
+}
+
+/* 체크박스 네모 */
+.square[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.square[type=checkbox] + .label {
+  display: inline-block;
+  background-image: url("/imgs/check_box_square-off.svg");
+  background-repeat: no-repeat;
+  background-position: 0;
+  background-size: 24px;
+  color: transparent;
+  width: 24px;
+  height: 24px;
+  transition: background-image .3s ease-in-out;
+}
+
+.square[type=checkbox]:checked + .label {
+  background-image: url("/imgs/check_box_square.svg");
+  transition: background-image .3s ease-in-out;
+}
+
+/* 체크박스 동그라미 */
+.circle[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.circle[type=checkbox] + .label {
+  display: inline-block;
+  background-image: url("/imgs/check_box_rounded-off.svg");
+  background-repeat: no-repeat;
+  background-position: 0;
+  background-size: 24px;
+  color: transparent;
+  width: 24px;
+  height: 24px;
+  transition: background-image .3s ease-in-out;
+}
+
+.circle[type=checkbox]:checked + .label {
+  background-image: url("/imgs/check_box_rounded.svg");
+  transition: background-image .3s ease-in-out;
+}

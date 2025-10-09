@@ -1,0 +1,35 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.head {
+  position: relative;
+  color: #ff5116;
+  h1,
+  h3 {
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+  }
+  h1 {
+    font-size: 180px;
+  }
+  h3 {
+    font-size: 29px;
+    position: absolute;
+    bottom: 3px;
+    left: 95px;
+  }
+}
+
+.text {
+  margin-top: 50px;
+  margin-bottom: 71px;
+  @include font-theme($display, $bold);
+  font-size: 29px;
+}

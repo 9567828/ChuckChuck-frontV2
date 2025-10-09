@@ -1,0 +1,38 @@
+.primary {
+  height: 64px;
+  @include flex(null, center, center, 10px);
+  padding: 18px 32px;
+  box-shadow: $shadow;
+  border-radius: 20px;
+  @include font-theme($bodyMd, $bold);
+  background-color: $main-color;
+  color: $bg-white;
+  &:hover:not(.secondary, .google) {
+    background-color: $main-hover-color;
+  }
+  &.long {
+    width: 520px;
+  }
+}
+
+.secondary {
+  @extend .primary;
+  background-color: $bg-white;
+  color: $bg-black;
+  border: 1px solid $gray-600;
+  &:disabled {
+    border: unset;
+  }
+}
+
+.google {
+  @extend .primary;
+  background-color: $bg-white;
+  color: $bg-black;
+  width: 520px;
+  border: 1px solid $gray-400;
+  box-shadow: unset;
+  img {
+    height: 40px;
+  }
+}
