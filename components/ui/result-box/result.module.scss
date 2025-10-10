@@ -1,0 +1,16 @@
+.box-wrap {
+  width: 100%;
+  padding: 21px 25px;
+  @include flex(null, space-between, center, null);
+  background-color: $gray-300;
+  border-radius: 10px;
+  margin: 16px 0;
+}
+
+.email {
+  @include font-theme($bodyMd, $medium);
+}
+
+.meta {
+  @include font-theme($captionXs, $regular);
+}

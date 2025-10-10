@@ -1,0 +1,8 @@
+.info {
+  @include font-theme($bodySm, $medium);
+  margin-bottom: 53px;
+}
+
+.meta-wrap {
+  margin-bottom: 79px;
+}

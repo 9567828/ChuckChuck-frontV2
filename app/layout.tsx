@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/global-style.ts";
 import QueryProvider from "./QueryProvider";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "ChuckChuck",
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <Suspense fallback="">{children}</Suspense>
+        </QueryProvider>
       </body>
     </html>
   );

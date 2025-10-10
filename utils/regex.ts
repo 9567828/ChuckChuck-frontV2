@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export const handleRegex = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -9,5 +11,13 @@ export const handleRegex = () => {
     }
   };
 
-  return { handleEmailRegex };
+  const handleOtherRegex = (regex: RegExp, value: string) => {
+    if (regex.test(value)) {
+      return true;
+    } else {
+      false;
+    }
+  };
+
+  return { handleEmailRegex, handleOtherRegex };
 };

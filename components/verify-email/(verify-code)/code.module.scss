@@ -1,3 +1,8 @@
+.input-wrap {
+  @include flex(column, center, center, 16px);
+  padding-top: 16px;
+}
+
 .time-wrap {
   @include flex(null, space-between, center, null);
   margin: 8px 0 67px;

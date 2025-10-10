@@ -19,10 +19,17 @@
   &.search:focus { padding-left: 16px; }
   &.small:focus { padding-left: 12px; }
   &.small.search:focus { padding-left: 12px; }
+  &:disabled {
+    background-color: $gray-300;
+  }
 }
 
 .label {
   position: relative;
+}
+
+.input:disabled .label {
+  pointer-events: none;
 }
 
 .icon {

@@ -1,6 +1,7 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 
 const paths = [
   { href: "/join", title: "이름 / 생년월일" },
@@ -12,12 +13,16 @@ const paths = [
 export const useHooks = () => {
   const route = useRouter();
   const path = usePathname();
+  const searchParams = useSearchParams();
 
   const useRoute = (url: string) => {
     route.push(url);
   };
 
   const useRouteBack = () => {
+    if (path === "/join") {
+      localStorage.clear();
+    }
     route.back();
   };
 
@@ -29,7 +34,21 @@ export const useHooks = () => {
     }
   };
 
+  const queryToString = (paramName: string): string | null => {
+    const raw = searchParams.get(paramName);
+    if (!raw) return null; // null 또는 빈값 방어
+
+    try {
+      const decoded = decodeURIComponent(raw.trim()); // URL 인코딩 해제 + 공백 제거
+      if (decoded === "") return null; // 공백만 있을 경우 무효 처리
+      return decoded;
+    } catch (err) {
+      console.error(`Invalid query param: ${paramName}`, err);
+      return null; // 디코딩 실패 시 안전하게 null 반환
+    }
+  };
+
   const isLogin = path.startsWith("/login");
 
-  return { useRoute, getPageName, isLogin, useRouteBack };
+  return { useRoute, getPageName, isLogin, useRouteBack, queryToString };
 };
