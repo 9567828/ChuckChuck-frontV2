@@ -1,7 +1,9 @@
 "use client";
 
+import { IUser, tempUser } from "@/utils/tempUser";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
+import { useUserQuery } from "./react-query/useQuery/useQuery";
 
 const paths = [
   { href: "/join", title: "이름 / 생년월일" },
@@ -48,7 +50,20 @@ export const useHooks = () => {
     }
   };
 
-  const isLogin = path.startsWith("/login");
+  const isLoginPage = path.startsWith("/login");
 
-  return { useRoute, getPageName, isLogin, useRouteBack, queryToString };
+  const useUserInfo = () => {
+    const { data, isError } = useUserQuery();
+    const [userInfo, setUserInfo] = useState<IUser | null>(null);
+
+    useEffect(() => {
+      if (!data) return;
+      const existed = tempUser.find((v) => v.email === data);
+      setUserInfo(existed ?? null);
+    }, [data]);
+
+    return userInfo;
+  };
+
+  return { useRoute, getPageName, isLoginPage, useRouteBack, queryToString, useUserInfo };
 };

@@ -1,5 +1,4 @@
 import Footer from "@/components/layout/footer/footer";
-import PageHead from "../../components/layout/PageHead";
 import { Suspense } from "react";
 import Loading from "../loading";
 import BackBtn from "../../components/ui/BackBtn";

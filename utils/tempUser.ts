@@ -1,10 +1,20 @@
-export const tempUser = [
+export interface IUser {
+  empCode: string;
+  name: string;
+  email: string;
+  password?: string;
+  avatarURL: string;
+  admin: boolean;
+  joinDate: string;
+}
+
+export const tempUser: IUser[] = [
   {
     empCode: "123",
     name: "홍길동",
     email: "123@naver.com",
     password: "qwer1234!",
-    avatarURL: "",
+    avatarURL: "/imgs/202301261737390.jpg",
     admin: false,
     joinDate: "2024.12.01",
   },

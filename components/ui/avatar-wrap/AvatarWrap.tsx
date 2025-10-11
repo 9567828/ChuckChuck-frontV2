@@ -1,20 +1,23 @@
-import { ButtonHTMLAttributes } from "react";
 import style from "./avatar.module.scss";
 
-interface IAvatar extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** 헤더에 올릴 때 */
+interface IAvatar {
+  /** 헤더에서 프로필로 이동시 */
   isProfile?: boolean;
   name: string;
   /** 전체이름표시 */
-  isFullName: boolean;
+  isFullName?: boolean;
   src?: string;
   alt?: string;
+  onClick?: () => void;
 }
 
-export default function AvatarWrap({ name, src, alt, isFullName = false, isProfile = false }: IAvatar) {
+export default function AvatarWrap({ name, src, alt, isFullName = false, isProfile = false, onClick }: IAvatar) {
   return (
     <div className={style.flex}>
-      <button className={`${style["avatar-wrap"]} ${isProfile ? style.border : ""} ${isFullName ? style.small : ""}`.trim()}>
+      <button
+        className={`${style["avatar-wrap"]} ${isProfile ? style.border : ""} ${isFullName ? style.small : ""}`.trim()}
+        onClick={onClick}
+      >
         {src !== "" ? (
           <img src={src} alt={alt} className={style.avatar} />
         ) : (

@@ -6,10 +6,13 @@ import CheckBox from "@/components/ui/check-box/CheckBox";
 import Link from "next/link";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import TextWrap from "@/components/ui/text-wrap/TextWrap";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";
 import { handleRegex } from "@/utils/regex";
+import { useCreateMutation } from "@/hooks/react-query/useMutation";
+import { useQueryClient } from "@tanstack/react-query";
+import PasswordBox from "@/components/ui/input-box/PasswordBox";
 
 const findAccount = [
   { href: "/auth/find-id", name: "아이디 찾기" },
@@ -19,10 +22,13 @@ const findAccount = [
 export default function LoginForm() {
   const { useRoute } = useHooks();
   const { handleEmailRegex } = handleRegex();
+  const { mutate } = useCreateMutation();
+  const queryClient = useQueryClient();
 
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [msg, setMsg] = useState("");
+  const [checkedAuto, setCheckedAuto] = useState(false);
 
   const onSumbit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,28 +57,37 @@ export default function LoginForm() {
       return;
     }
 
+    // 로그인 성공
     if (exist.email === email.trim() || exist.password === pw.trim()) {
-      localStorage.setItem("isLogin", "true");
       const userObj = {
-        email: exist.email,
-        name: exist.name,
-        empCode: exist.empCode,
-        avartarURL: exist.avatarURL,
-        admin: exist.admin,
-        joinDate: exist.joinDate,
+        data: {
+          email: exist.email,
+          name: exist.name,
+          empCode: exist.empCode,
+          avatarURL: exist.avatarURL,
+          admin: exist.admin,
+          joinDate: exist.joinDate,
+        },
       };
-
-      localStorage.setItem("userInfo", JSON.stringify(userObj));
-      useRoute("/");
+      mutate(userObj, {
+        onSuccess: () => {
+          queryClient.setQueryData(["user"], userObj);
+          if (checkedAuto) {
+            document.cookie = `isLogin=true; path=/; max-age=${60 * 60 * 24 * 7}`;
+            document.cookie = `userId=${exist.email}; path=/; max-age=${60 * 60 * 24 * 7}`;
+            document.cookie = `autoLogin=true; path=/; max-age=${60 * 60 * 24 * 7}`;
+          } else {
+            document.cookie = `isLogin=true; path=/;`;
+            document.cookie = `userId=${exist.email}; path=/;`;
+          }
+          useRoute("/");
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      });
     }
   };
-
-  useEffect(() => {
-    const isLogin = localStorage.getItem("isLogin");
-    if (isLogin === "true") {
-      useRoute("/");
-    }
-  }, []);
 
   return (
     <div>
@@ -84,11 +99,11 @@ export default function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <InputBox type="password" id="inputPw" placeholder="••••••••••" value={pw} onChange={(e) => setPw(e.target.value)} />
+        <PasswordBox id="inputPw" placeholder="••••••••••" value={pw} onChange={(e) => setPw(e.target.value)} />
       </form>
       <TextWrap pdTop="0" text={msg} />
       <div className={style["auto-wrap"]}>
-        <CheckBox variant="circle" id="autoLogin">
+        <CheckBox variant="circle" id="autoLogin" checked={checkedAuto} onChange={() => setCheckedAuto((prev) => !prev)}>
           <label htmlFor="autoLogin" className={style.label}>
             자동 로그인
           </label>

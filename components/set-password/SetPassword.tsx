@@ -1,12 +1,12 @@
 "use client";
 
 import style from "./password.module.scss";
-import InputBox from "@/components/ui/input-box/InputBox";
 import TextWrap from "../ui/text-wrap/TextWrap";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useHooks } from "@/hooks/useHooks";
 import sha256 from "crypto-js/sha256";
+import PasswordBox from "../ui/input-box/PasswordBox";
 
 interface ISetPw {
   mode: "join" | "reset";
@@ -17,11 +17,25 @@ export default function SetPassword({ mode }: ISetPw) {
   const [msg, setMsg] = useState("");
   const [pw, setPw] = useState("");
   const [confirmPw, setConfirmPw] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [optionalAgree, setOptionalAgree] = useState(false);
+
+  useEffect(() => {
+    const name = localStorage.getItem("name");
+    const mail = localStorage.getItem("email");
+    const agree = localStorage.getItem("optionalAgree");
+    if (name && mail) {
+      setName(name);
+      setEmail(mail);
+    }
+    if (agree) {
+      setOptionalAgree(true);
+    }
+  }, []);
 
   const onSumbit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log(pw, confirmPw);
 
     if (pw.trim() === "") {
       setMsg("비밀번호를 입력해 주세요.");
@@ -38,7 +52,14 @@ export default function SetPassword({ mode }: ISetPw) {
 
     if (mode === "join") {
       // 회원가입일때
-      localStorage.setItem("password", hashedPw);
+      // 서버로 정보전달
+      const joinInfo = {
+        email,
+        name,
+        optionalAgree: optionalAgree ? true : false,
+        password: hashedPw,
+        // joinDate: Date.now()
+      };
       useRoute("/join/request-join");
     }
 
@@ -52,7 +73,7 @@ export default function SetPassword({ mode }: ISetPw) {
     <form onSubmit={onSumbit}>
       <div className={style["input-wrap"]}>
         <div>
-          <InputBox type="password" id="inputPw" placeholder="비밀번호" value={pw} onChange={(e) => setPw(e.target.value)} />
+          <PasswordBox id="inputPw" placeholder="비밀번호" value={pw} onChange={(e) => setPw(e.target.value)} />
           <TextWrap
             pdTop="8px"
             variant="info"
@@ -60,8 +81,7 @@ export default function SetPassword({ mode }: ISetPw) {
           />
         </div>
         <div>
-          <InputBox
-            type="password"
+          <PasswordBox
             id="pwConfirm"
             placeholder="비밀번호 확인"
             value={confirmPw}

@@ -34,6 +34,17 @@
   }
 }
 
+@mixin bgImg($gradient: false, $url, $position:center, $size:cover) {
+  @if ($gradient) {
+    background: linear-gradient(#{$gradient}), url($url);
+  } @else {
+    background-image: url($url);
+  }
+  background-position: $position;
+  background-size: $size;
+  background-repeat: no-repeat;
+}
+
 @mixin home-card {
   margin-bottom: 8px;
   padding: 8px 14px;

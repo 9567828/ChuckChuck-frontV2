@@ -1,6 +1,7 @@
 import style from "./electric.module.scss";
 import CardWrap from "@/components/layout/home/card-wrap/CardWrap";
 import AvatarWrap from "@/components/ui/avatar-wrap/AvatarWrap";
+import Link from "next/link";
 
 const electricLists = [
   {
@@ -42,13 +43,13 @@ export default function Electric() {
     <CardWrap src="ic_fill_electric.svg" alt={cardTitle} title={cardTitle} lenght={7}>
       <div className={style["list-wrap"]}>
         {electricLists.map((e, i) => (
-          <div key={i} className={style.grid}>
+          <Link href={""} key={i} className={style.grid}>
             <p className={style.eclips}>{e.title}</p>
             <div className={style.flex}>
               <p className={style.date}>{e.date}</p>
               <AvatarWrap name={e.name} isFullName={true} src={e.src} alt={e.name} />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </CardWrap>

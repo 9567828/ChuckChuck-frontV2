@@ -1,0 +1,58 @@
+.bg {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.305);
+}
+
+.header {
+  position: relative;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.nav {
+  @include flex(null, space-between, center, null);
+  padding: 0 40px;
+  background-color: $bg-white;
+}
+
+.flex-center {
+  @include flex(null, center, center, 32px);
+}
+
+.modal-wrap {
+  gap: 24px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.menu-btn {
+  display: none;
+}
+
+@media screen and (max-width: 1439px) {
+  .nav {
+    padding: 16px 40px;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .hidden {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 720px) {
+}

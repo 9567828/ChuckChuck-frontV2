@@ -1,0 +1,24 @@
+.menu-row {
+  @include flex(null, center, center, 8px);
+  padding: 11.5px 12px;
+}
+
+.menu-col {
+  @include flex(column, null, flex-start, 18px);
+}
+
+.menu {
+  padding: 8px 16px;
+  border-radius: 10px;
+  @include font-theme($bodyMd, $bold);
+  &.active {
+    background-color: $main-color;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .menu-row {
+    display: none;
+  }
+}

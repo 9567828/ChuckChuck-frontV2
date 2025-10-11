@@ -5,6 +5,24 @@
   background-color: #FAFAFA;
 }
 
+.home-grid {
+  width: 100%;
+  height: 100%;
+  @include grid-col(repeat(2, minmax(668px, 1fr)), null, null, 24px);
+  .vacation-wrap {
+    @include flex(null, space-between, null, 16px);
+  }
+}
+
+@media screen and (max-width: 1439px) {
+  .inner:not(.admin) { padding: 40px 24px; }
+  .home-grid {
+    min-width: 672px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 // account page
 .account-container {
   width: 100%;

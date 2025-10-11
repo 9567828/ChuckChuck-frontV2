@@ -1,16 +1,16 @@
-import Schedule from "./(schedule)/Schedule";
+import Commute from "./(commute)/Commute";
 import Electric from "./(electric)/Electric";
 import Notice from "./(notice)/Notice";
-import Commute from "./(commute)/Commute";
+import Schedule from "./(schedule)/Schedule";
 import Vacation from "./(vacation)/Vacation";
 
-export default function DashBoard() {
+export default function Home() {
   return (
-    <div>
+    <div className="home-grid">
       <Electric />
       <Schedule />
       <Notice />
-      <div>
+      <div className="vacation-wrap">
         <Commute />
         <Vacation />
       </div>

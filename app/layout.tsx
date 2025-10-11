@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/global-style.ts";
 import QueryProvider from "./QueryProvider";
 import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata: Metadata = {
   title: "ChuckChuck",
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <QueryProvider>
-          <Suspense fallback="">{children}</Suspense>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </QueryProvider>
       </body>
     </html>

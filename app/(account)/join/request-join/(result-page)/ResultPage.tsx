@@ -11,28 +11,17 @@ export default function ResultPage() {
   const { useRoute } = useHooks();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [optionalAgree, setOptionalAgree] = useState(false);
-  const [pw, setPw] = useState("");
 
   useEffect(() => {
     const name = localStorage.getItem("name");
     const mail = localStorage.getItem("email");
-    const agree = localStorage.getItem("optionalAgree");
-    const password = localStorage.getItem("password");
-    if (name && mail && password) {
+    if (name && mail) {
       setName(name);
       setEmail(mail);
-      setPw(password);
-    }
-    if (agree) {
-      setOptionalAgree(true);
     }
   }, []);
 
   const goToLogin = () => {
-    // 서버로 정보 넘기기
-
-    // 넘긴 후 이동
     localStorage.clear();
     useRoute("/login");
   };
