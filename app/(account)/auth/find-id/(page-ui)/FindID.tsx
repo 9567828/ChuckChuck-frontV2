@@ -1,7 +1,7 @@
 "use client";
 
 import InputBox from "@/components/ui/input-box/InputBox";
-import TextWrap from "@/components/ui/text-wrap/TextWrap";
+import FormMessage from "@/components/ui/form-message/FormMessage";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import { FormEvent, useState } from "react";
 import { tempUser } from "@/utils/tempUser";
@@ -29,7 +29,7 @@ export default function FindId() {
     <form onSubmit={onSubmit}>
       <div style={{ padding: "16px 0", marginBottom: "136px" }}>
         <InputBox placeholder="사번" onChange={(e) => setInputEmpCode(e.target.value)} />
-        <TextWrap text={msg} variant={isErr ? "error" : "info"} />
+        <FormMessage text={msg} variant={isErr ? "error" : "info"} />
       </div>
       <PrimayBtn label="다음" addClass="long" />
     </form>

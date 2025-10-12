@@ -6,25 +6,27 @@ interface IAvatar {
   name: string;
   /** 전체이름표시 */
   isFullName?: boolean;
+  /** 크기 작게 */
+  isSmall?: boolean;
   src?: string;
   alt?: string;
   onClick?: () => void;
 }
 
-export default function AvatarWrap({ name, src, alt, isFullName = false, isProfile = false, onClick }: IAvatar) {
+export default function AvatarWrap({ name, src, alt, isFullName = false, isSmall = false, isProfile = false, onClick }: IAvatar) {
   return (
     <div className={style.flex}>
       <button
-        className={`${style["avatar-wrap"]} ${isProfile ? style.border : ""} ${isFullName ? style.small : ""}`.trim()}
+        className={`${style["avatar-wrap"]} ${isProfile ? style.border : ""} ${isSmall ? style.small : ""}`.trim()}
         onClick={onClick}
       >
         {src !== "" ? (
           <img src={src} alt={alt} className={style.avatar} />
         ) : (
-          <span className={`${style["first-name"]} ${isFullName ? style["font-small"] : ""}`.trim()}>{name.slice(0, 1)}</span>
+          <span className={`${style["first-name"]} ${isSmall ? style["font-small"] : ""}`.trim()}>{name.slice(0, 1)}</span>
         )}
       </button>
-      {isFullName ? <p className="captionXxs-m">{name}</p> : null}
+      {isFullName ? <p className={isSmall ? "captionXxs-m" : "bodySm-m"}>{name}</p> : null}
     </div>
   );
 }

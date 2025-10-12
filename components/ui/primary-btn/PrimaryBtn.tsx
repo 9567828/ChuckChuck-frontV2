@@ -7,7 +7,7 @@ interface IBtn extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   isGoogle?: boolean;
   variant?: "primary" | "secondary" | "google";
-  addClass?: keyof typeof style;
+  addClass?: "long" | "nomal" | "radius";
 }
 
 export default function PrimayBtn({ label, variant = "primary", addClass, isGoogle = false, ...props }: IBtn) {

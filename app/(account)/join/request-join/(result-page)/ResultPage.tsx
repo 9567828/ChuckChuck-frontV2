@@ -2,7 +2,7 @@
 
 import style from "./result.module.scss";
 import ResultBox from "@/components/ui/result-box/ResultBox";
-import TextWrap from "@/components/ui/text-wrap/TextWrap";
+import FormMessage from "@/components/ui/form-message/FormMessage";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 import { useEffect, useState } from "react";
@@ -31,7 +31,7 @@ export default function ResultPage() {
       <p className={style.info}>해당 정보로 회사에 가입요청을 보내시겠습니까?</p>
       <div className={style["meta-wrap"]}>
         <ResultBox email={email} meta={name} />
-        <TextWrap
+        <FormMessage
           pdTop="0"
           variant="info"
           text="가입 요청이 성공적으로 전송되었습니다. 관리자가 승인하면 로그인할 수 있습니다."

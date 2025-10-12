@@ -17,7 +17,7 @@ $linehight-140: 1.4;
 $linehight-150: 1.5;
 $letterspacing-2: -0.02em;
 
-$display-size: 32px;
+$displayXxl-size: 32px;
 $titleXl-size: 24px;
 $titleLg-size: 20px;
 $bodyMd-size: 18px;
@@ -32,7 +32,7 @@ $medium: 500;
 
 $shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 
-$display: "display";
+$displayXxl: "displayXxl";
 $titleXl: "titleXl";
 $titleLg: "titleLg";
 $bodyMd: "bodyMd";
@@ -42,7 +42,7 @@ $captionXxs: "captionXxs";
 $captionXxxs: "captionXxxs";
 
 $font-map: (
-  display : (size: $display-size, line: $linehight-140, letter: $letterspacing-2),
+  displayXxl : (size: $displayXxl-size, line: $linehight-140, letter: $letterspacing-2),
   titleXl : (size: $titleXl-size, line: $linehight-140, letter: $letterspacing-2),
   titleLg : (size: $titleLg-size, line: $linehight-140, letter: $letterspacing-2),
   bodyMd : (size: $bodyMd-size, line: $linehight-150, letter: $letterspacing-2),

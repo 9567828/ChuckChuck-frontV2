@@ -1,4 +1,4 @@
-import style from "./text.module.scss";
+import style from "./form-message.module.scss";
 
 interface IText {
   text: string;
@@ -6,7 +6,7 @@ interface IText {
   pdTop?: "8px" | "16px" | "0";
 }
 
-export default function TextWrap({ pdTop = "8px", text, variant = "error" }: IText) {
+export default function FormMessage({ pdTop = "8px", text, variant = "error" }: IText) {
   return (
     <p
       style={pdTop === "0" ? undefined : { paddingTop: `${pdTop}` }}

@@ -5,7 +5,7 @@ import style from "./login-form.module.scss";
 import CheckBox from "@/components/ui/check-box/CheckBox";
 import Link from "next/link";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
-import TextWrap from "@/components/ui/text-wrap/TextWrap";
+import FormMessage from "@/components/ui/form-message/FormMessage";
 import { FormEvent, useState } from "react";
 import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";
@@ -59,15 +59,19 @@ export default function LoginForm() {
 
     // 로그인 성공
     if (exist.email === email.trim() || exist.password === pw.trim()) {
+      const { password, ...data } = exist;
       const userObj = {
-        data: {
-          email: exist.email,
-          name: exist.name,
-          empCode: exist.empCode,
-          avatarURL: exist.avatarURL,
-          admin: exist.admin,
-          joinDate: exist.joinDate,
-        },
+        data,
+        // data: {
+        //   email: exist.email,
+        //   name: exist.name,
+        //   empCode: exist.empCode,
+        //   avatarURL: exist.avatarURL,
+        //   admin: exist.admin,
+        //   joinDate: exist.joinDate,
+        //   startWorkTime: exist.startWorkTime,
+        //   finishWorkTime: exist.finishWorkTime,
+        // },
       };
       mutate(userObj, {
         onSuccess: () => {
@@ -101,7 +105,7 @@ export default function LoginForm() {
         />
         <PasswordBox id="inputPw" placeholder="••••••••••" value={pw} onChange={(e) => setPw(e.target.value)} />
       </form>
-      <TextWrap pdTop="0" text={msg} />
+      <FormMessage pdTop="0" text={msg} />
       <div className={style["auto-wrap"]}>
         <CheckBox variant="circle" id="autoLogin" checked={checkedAuto} onChange={() => setCheckedAuto((prev) => !prev)}>
           <label htmlFor="autoLogin" className={style.label}>

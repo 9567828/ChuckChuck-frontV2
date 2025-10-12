@@ -15,13 +15,6 @@
   @include flex(null, center, center, 32px);
 }
 
-.eclips {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  @include font-theme($captionXs, $bold);
-}
-
 .date {
   @include font-theme($captionXs, $regular);
   margin-left: 16px;

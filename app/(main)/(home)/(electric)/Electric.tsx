@@ -38,16 +38,15 @@ const electricLists = [
 ];
 
 export default function Electric() {
-  const cardTitle = "전자결재";
   return (
-    <CardWrap src="ic_fill_electric.svg" alt={cardTitle} title={cardTitle} lenght={7}>
+    <CardWrap src="ic_fill_electric.svg" title="전자결재" lenght={7}>
       <div className={style["list-wrap"]}>
         {electricLists.map((e, i) => (
           <Link href={""} key={i} className={style.grid}>
-            <p className={style.eclips}>{e.title}</p>
+            <p className="eclips">{e.title}</p>
             <div className={style.flex}>
               <p className={style.date}>{e.date}</p>
-              <AvatarWrap name={e.name} isFullName={true} src={e.src} alt={e.name} />
+              <AvatarWrap name={e.name} isFullName={true} isSmall={true} src={e.src} alt={e.name} />
             </div>
           </Link>
         ))}

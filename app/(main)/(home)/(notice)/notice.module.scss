@@ -1,0 +1,18 @@
+.notice-wrap {
+  @include flex(column, center, null, 16px);
+}
+
+.notice-list {
+  position: relative;
+  width: 100%;
+  @include grid-col(1fr 133px, center, null, 24px);
+  padding: 14px;
+  &:not(:last-child)::after {
+    position: absolute;
+    content: "";
+    bottom: -8px;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-200;
+  }
+}

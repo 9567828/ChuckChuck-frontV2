@@ -10,7 +10,7 @@
   height: 100%;
   @include grid-col(repeat(2, minmax(668px, 1fr)), null, null, 24px);
   .vacation-wrap {
-    @include flex(null, space-between, null, 16px);
+    @include grid-col(312px 1fr, null, null, 16px);
   }
 }
 
@@ -45,7 +45,7 @@
 }
 
 // 폰트설정
-@include gen-font-class($display);
+@include gen-font-class($displayXxl);
 @include gen-font-class($titleXl);
 @include gen-font-class($titleLg);
 @include gen-font-class($bodyMd);
@@ -61,6 +61,14 @@
   img {
     height: 152px;
   }
+}
+
+// 홈 리스트 제목
+.eclips {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include font-theme($captionXs, $bold);
 }
 
 /* input, button 초기설정 */

@@ -30,6 +30,6 @@
 .text {
   margin-top: 50px;
   margin-bottom: 71px;
-  @include font-theme($display, $bold);
+  @include font-theme($displayXxl, $bold);
   font-size: 29px;
 }

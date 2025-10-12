@@ -2,7 +2,7 @@
 
 import CheckBox from "@/components/ui/check-box/CheckBox";
 import InputBox from "@/components/ui/input-box/InputBox";
-import TextWrap from "@/components/ui/text-wrap/TextWrap";
+import FormMessage from "@/components/ui/form-message/FormMessage";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import style from "./join.module.scss";
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction, useEffect, useState } from "react";
@@ -140,7 +140,7 @@ export default function JoinForm() {
             onChange={(e) => setInputName(e.target.value.replace(trimRegex, ""))}
           />
         </div>
-        <TextWrap pdTop="0" text={msg} />
+        <FormMessage pdTop="0" text={msg} />
         <div className={style["birth-wrap"]}>
           <InputBox
             isBirth={true}

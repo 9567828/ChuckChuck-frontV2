@@ -1,7 +1,7 @@
 "use client";
 
 import InputBox from "@/components/ui/input-box/InputBox";
-import TextWrap from "@/components/ui/text-wrap/TextWrap";
+import FormMessage from "@/components/ui/form-message/FormMessage";
 import { FormEvent, useEffect, useState } from "react";
 import style from "./code.module.scss";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
@@ -78,12 +78,12 @@ export default function VerifyCode() {
         <InputBox type="text" id="code" value={codeValue} onChange={(e) => setCodeValue(e.target.value)} />
       </div>
       <div className={style["time-wrap"]}>
-        <TextWrap pdTop="0" text={`${msg} ${time}`} />
+        <FormMessage pdTop="0" text={`${msg} ${time}`} />
         <button type="button" onClick={onResend} className={style["resend-btn"]}>
           재전송
         </button>
       </div>
-      <PrimayBtn label="인증하기" addClass={"long"} />
+      <PrimayBtn label="인증하기" addClass="long" />
     </form>
   );
 }

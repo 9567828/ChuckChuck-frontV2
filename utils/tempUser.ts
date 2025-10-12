@@ -6,6 +6,8 @@ export interface IUser {
   avatarURL: string;
   admin: boolean;
   joinDate: string;
+  startWorkTime: string;
+  finishWorkTime: string;
 }
 
 export const tempUser: IUser[] = [
@@ -17,6 +19,8 @@ export const tempUser: IUser[] = [
     avatarURL: "/imgs/202301261737390.jpg",
     admin: false,
     joinDate: "2024.12.01",
+    startWorkTime: "09:00:00",
+    finishWorkTime: "18:00:00",
   },
   {
     empCode: "234",
@@ -26,5 +30,7 @@ export const tempUser: IUser[] = [
     avatarURL: "",
     admin: true,
     joinDate: "2024.12.01",
+    startWorkTime: "09:00:00",
+    finishWorkTime: "18:00:00",
   },
 ];

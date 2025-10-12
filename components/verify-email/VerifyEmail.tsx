@@ -3,7 +3,7 @@
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import React, { FormEvent, FormHTMLAttributes, useState } from "react";
 import InputBox from "../ui/input-box/InputBox";
-import TextWrap from "../ui/text-wrap/TextWrap";
+import FormMessage from "../ui/form-message/FormMessage";
 import { handleRegex } from "@/utils/regex";
 import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";
@@ -64,9 +64,9 @@ export default function VerifyEmail({ defaultMsg, btnName, isValid = false, mode
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <TextWrap pdTop="0" variant={isErr ? "error" : "info"} text={msg} />
+          <FormMessage pdTop="0" variant={isErr ? "error" : "info"} text={msg} />
         </div>
-        <PrimayBtn type="submit" label={btnName} addClass={"long"} disabled={isValid} />
+        <PrimayBtn type="submit" label={btnName} addClass="long" disabled={isValid} />
       </form>
     </>
   );

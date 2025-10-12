@@ -1,4 +1,4 @@
-import Commute from "./(commute)/Commute";
+import Commute from "./(attendance)/Attendance";
 import Electric from "./(electric)/Electric";
 import Notice from "./(notice)/Notice";
 import Schedule from "./(schedule)/Schedule";

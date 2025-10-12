@@ -1,7 +1,7 @@
 "use client";
 
 import style from "./password.module.scss";
-import TextWrap from "../ui/text-wrap/TextWrap";
+import FormMessage from "../ui/form-message/FormMessage";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import { FormEvent, useEffect, useState } from "react";
 import { useHooks } from "@/hooks/useHooks";
@@ -74,7 +74,7 @@ export default function SetPassword({ mode }: ISetPw) {
       <div className={style["input-wrap"]}>
         <div>
           <PasswordBox id="inputPw" placeholder="비밀번호" value={pw} onChange={(e) => setPw(e.target.value)} />
-          <TextWrap
+          <FormMessage
             pdTop="8px"
             variant="info"
             text={`영문 대소문자, 숫자, 특수문자 3가지 이상으로 조합하여\n8자 이상 32자 이하로 입력해주세요.`}
@@ -87,7 +87,7 @@ export default function SetPassword({ mode }: ISetPw) {
             value={confirmPw}
             onChange={(e) => setConfirmPw(e.target.value)}
           />
-          <TextWrap pdTop="8px" variant="error" text={msg} />
+          <FormMessage pdTop="8px" variant="error" text={msg} />
         </div>
       </div>
       <PrimayBtn type="submit" label={mode === "reset" ? "완료" : "다음"} addClass="long" disabled={pw === ""} />

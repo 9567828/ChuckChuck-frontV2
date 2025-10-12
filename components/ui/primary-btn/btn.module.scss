@@ -13,6 +13,13 @@
   &.long {
     width: 520px;
   }
+  &.nomal {
+    width: 100%;
+  }
+  &.radius {
+    width: 100%;
+    border-radius: 10px;
+  }
 }
 
 .secondary {
