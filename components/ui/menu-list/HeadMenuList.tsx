@@ -4,7 +4,11 @@ import Link from "next/link";
 import style from "./menu.module.scss";
 import { usePathname } from "next/navigation";
 import { useHooks } from "@/hooks/useHooks";
-import { useUserStore } from "@/hooks/useUserStore";
+
+interface IHeadMenu {
+  variant?: "menu-row" | "menu-col";
+  onClick?: () => void;
+}
 
 export const headerMenuList = [
   { href: "/", menu: "홈" },
@@ -16,7 +20,7 @@ export const headerMenuList = [
   { href: "/admin/company-info", menu: "관리자", adminOnly: true },
 ];
 
-export default function HeadMenuList({ variant = "menu-row" }: { variant?: "menu-row" | "menu-col" }) {
+export default function HeadMenuList({ variant = "menu-row", onClick }: IHeadMenu) {
   const path = usePathname();
   const { useUserInfo } = useHooks();
   const user = useUserInfo();
@@ -26,8 +30,10 @@ export default function HeadMenuList({ variant = "menu-row" }: { variant?: "menu
       {headerMenuList
         .filter((m) => !(m.adminOnly && !user?.admin))
         .map((m, i) => (
-          <li key={i} className={`${style.menu} ${path.includes(m.href) ? style.active : ""}`.trim()}>
-            <Link href={m.href}>{m.menu}</Link>
+          <li key={i} className={`${style.menu} ${path === m.href && path.startsWith(m.href) ? style.active : ""}`.trim()}>
+            <Link href={m.href} onClick={onClick}>
+              {m.menu}
+            </Link>
           </li>
         ))}
     </ul>

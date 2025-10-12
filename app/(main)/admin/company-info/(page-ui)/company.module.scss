@@ -1,0 +1,8 @@
+.img-wrap {
+  @include flex(null, null, center, 40px);
+  margin-bottom: 40px;
+}
+
+.input-wrap {
+  @include flex(column, center, null, 24px);
+}

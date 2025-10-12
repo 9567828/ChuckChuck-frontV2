@@ -1,8 +1,3 @@
-interface IFormat {
-  date: Date;
-  pattern: "yyyy-MM-dd" | "yyyy.MM.dd" | "yMd(a)";
-}
-
 export const makeTwoDigit = (num: number) => {
   return String(num).padStart(2, "0");
 };

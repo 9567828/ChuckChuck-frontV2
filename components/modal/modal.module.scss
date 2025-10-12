@@ -1,0 +1,23 @@
+// 요청 모달
+.request-wrap {
+  @include flex(column, center, null, 10px);
+  padding: 10px 24px;
+}
+.request-content {
+  @include flex(column, center, null, 16px);
+  padding: 14px 0;
+}
+
+.person-meta {
+  @include font-theme($captionXxs, $regular);
+  color: $gray-500;
+  margin: 8px 0 3px;
+}
+
+// 프로필모달
+.txt-pad {
+  width: 216px;
+  @include font-theme($captionXs, $regular);
+  padding: 8px 0;
+  text-align: left;
+}
