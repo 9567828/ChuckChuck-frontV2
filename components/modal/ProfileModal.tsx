@@ -3,38 +3,18 @@
 import Link from "next/link";
 import MainModalLayout from "../layout/main-modal/MainModalLayout";
 import style from "./modal.module.scss";
-import { useHooks } from "@/hooks/useHooks";
-import { useEffect, useState } from "react";
-import { getCookie } from "@/utils/cookieUitls";
+import { handleCookie } from "@/utils/cookieUitls";
 
 export default function ProfileModal({ onClose }: { onClose: () => void }) {
-  const { useRoute } = useHooks();
-  const [isCookie, setIsCookie] = useState(false);
-
-  useEffect(() => {
-    const isLogin = getCookie("isLogin");
-    const userId = getCookie("userId");
-
-    if (isLogin && userId) {
-      setIsCookie(true);
-    }
-  }, []);
-
-  const hadleLogout = () => {
-    if (isCookie) {
-      document.cookie = "isLogin=; path=/; max-age=0";
-      document.cookie = "userId=; path=/; max-age=0";
-      useRoute("/login");
-    }
-  };
+  const { handleLogout } = handleCookie();
 
   return (
     <MainModalLayout title="프로필" onClose={onClose} variant="content-wrap" addClass="profile">
-      <div className={`${style["content-wrap"]} ${style.profile}`}>
+      <div className={`${style["content-wrap"]} ${style.profile}`} onClick={onClose}>
         <Link href={"/mypage"} className={style["txt-pad"]}>
           프로필 변경
         </Link>
-        <button className={style["txt-pad"]} style={{ color: "#FF5116" }} onClick={hadleLogout}>
+        <button className={style["txt-pad"]} style={{ color: "#FF5116" }} onClick={handleLogout}>
           로그아웃
         </button>
       </div>

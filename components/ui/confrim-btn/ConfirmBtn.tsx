@@ -7,7 +7,7 @@ interface Ibtn extends ButtonHTMLAttributes<HTMLButtonElement> {
   onCancel?: () => void;
   variant?: "modal-v1" | "modal-v2" | "action";
   gap?: "4px" | "8px";
-  justy?: "center" | "flex-start";
+  justy?: "center" | "flex-start" | "flex-end";
   cancelBtnName?: "취소" | "거절";
 }
 
@@ -22,13 +22,19 @@ export default function ConfirmBtn({
   ...props
 }: Ibtn) {
   return (
-    <div className={style["btn-wrap"]} style={gap ? { gap: `${gap}` } : justy ? { justifyContent: `${justy}` } : undefined}>
+    <div
+      className={style["btn-wrap"]}
+      style={{
+        gap: gap ? gap : undefined,
+        justifyContent: justy ? justy : undefined,
+      }}
+    >
       <button {...props} className={style[variant]}>
-        {label}
+        <p>{label}</p>
       </button>
       {isCancel ? (
         <button type="button" onClick={onCancel} className={`${style[variant]} ${style.cancel}`}>
-          {cancelBtnName}
+          <p>{cancelBtnName}</p>
         </button>
       ) : null}
     </div>

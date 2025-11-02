@@ -9,11 +9,11 @@ interface IMenu {
 
 export default function Hamburger({ onClick, menuClose, isOpen = false }: IMenu) {
   return (
-    <div className={`${style.menu} ${isOpen ? style.open : ""}`.trim()}>
+    <aside className={`${style.menu} ${isOpen ? style.open : ""}`.trim()}>
       <HeadMenuList variant="menu-col" onClick={menuClose} />
       <button onClick={onClick}>
         <img src="/imgs/icons/ic_cancel.svg" alt="메뉴닫기" />
       </button>
-    </div>
+    </aside>
   );
 }

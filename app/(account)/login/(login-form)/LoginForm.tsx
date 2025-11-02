@@ -62,27 +62,15 @@ export default function LoginForm() {
       const { password, ...data } = exist;
       const userObj = {
         data,
-        // data: {
-        //   email: exist.email,
-        //   name: exist.name,
-        //   empCode: exist.empCode,
-        //   avatarURL: exist.avatarURL,
-        //   admin: exist.admin,
-        //   joinDate: exist.joinDate,
-        //   startWorkTime: exist.startWorkTime,
-        //   finishWorkTime: exist.finishWorkTime,
-        // },
       };
       mutate(userObj, {
         onSuccess: () => {
           queryClient.setQueryData(["user"], userObj);
+          document.cookie = `isLogin=true; path=/;`;
+          document.cookie = `userId=${exist.email}; path=/;`;
+          document.cookie = `role=${exist.admin}; path=/; max-age=${60 * 60 * 24 * 7}`;
           if (checkedAuto) {
-            document.cookie = `isLogin=true; path=/; max-age=${60 * 60 * 24 * 7}`;
-            document.cookie = `userId=${exist.email}; path=/; max-age=${60 * 60 * 24 * 7}`;
             document.cookie = `autoLogin=true; path=/; max-age=${60 * 60 * 24 * 7}`;
-          } else {
-            document.cookie = `isLogin=true; path=/;`;
-            document.cookie = `userId=${exist.email}; path=/;`;
           }
           useRoute("/");
         },

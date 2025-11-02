@@ -9,7 +9,7 @@ export default function MyPageSide() {
 
   return (
     <SideLayout title="마이페이지">
-      <div className={`${style.menu} ${path === "/mypage" ? style.active : ""}`.trim()}>프로필 변경</div>
+      <div className={`${style.menu} ${path.includes("/mypage") ? style.active : ""}`.trim()}>프로필 변경</div>
     </SideLayout>
   );
 }

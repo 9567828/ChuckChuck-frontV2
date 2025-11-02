@@ -8,15 +8,22 @@ interface IInputEdit {
   placeholder: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
 }
 
-export default function InputEditProfile({ label, id, type, placeholder, value, onChange }: IInputEdit) {
+export default function InputEditProfile({ label, id, type, placeholder, value, onChange, maxLength }: IInputEdit) {
   return (
     <div>
-      <p className="bodySm-b" style={{ padding: "0 4px", marginBottom: "6px" }}>
-        {label}
-      </p>
-      <InputBox type={type} isSmall={true} id={id} placeholder={placeholder} value={value} onChange={onChange} />
+      <p className="label-title">{label}</p>
+      <InputBox
+        type={type}
+        isSmall={true}
+        id={id}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        maxLength={maxLength}
+      />
     </div>
   );
 }

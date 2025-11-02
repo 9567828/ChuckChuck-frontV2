@@ -3,7 +3,7 @@ import style from "./form-message.module.scss";
 interface IText {
   text: string;
   variant?: "error" | "info";
-  pdTop?: "8px" | "16px" | "0";
+  pdTop?: "4px" | "8px" | "16px" | "0";
 }
 
 export default function FormMessage({ pdTop = "8px", text, variant = "error" }: IText) {

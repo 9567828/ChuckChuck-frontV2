@@ -21,8 +21,8 @@ export default function InputBox({
     <label id={props.id} className={`${isBirth ? style["birth-label"] : style.label}`.trim()} data-content={birthContent}>
       <input
         {...props}
-        className={`${isSmall ? style.small : ""} ${isSearch ? style.search : ""} ${
-          isBirth ? style["input-birth"] : style.input
+        className={`${style.input} ${isSmall ? style.small : ""} ${isSearch ? style.search : ""} ${
+          isBirth ? style["input-birth"] : ""
         }`.trim()}
         style={birthContent === "년" ? { width: "160px" } : isId ? { width: "320px" } : undefined}
       />

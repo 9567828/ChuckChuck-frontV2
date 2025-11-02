@@ -42,3 +42,8 @@
   @include font-theme($captionXs, $r);
   color: $gray-500;
 }
+
+// 비밀번호 변경 모달
+.pw-wrap {
+  @include flex(column, $gap: 16px);
+}

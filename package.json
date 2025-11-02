@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx next dev --experimental-https --experimental-https-key ./certificates/ssl.key --experimental-https-cert ./certificates/ssl.crt",
+    "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start"
   },
@@ -15,6 +15,7 @@
     "date-fns": "^4.1.0",
     "lottie-react": "^2.4.1",
     "next": "15.5.4",
+    "next-client-cookies": "^2.1.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sass": "^1.93.2",

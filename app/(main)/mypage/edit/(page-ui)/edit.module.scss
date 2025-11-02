@@ -1,0 +1,7 @@
+.container {
+  @include flex(column, $gap: 32px);
+}
+
+.input-wrap {
+  @include flex(column, $gap: 24px);
+}

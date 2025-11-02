@@ -106,7 +106,7 @@ export default function Attendance() {
         <p className="displayXxl-b">{time}</p>
         <p className={style.text}>{workState}</p>
       </div>
-      <PrimayBtn label={btnName} addClass="radius" disabled={isDisable} onClick={handleWorkState} />
+      <PrimayBtn label={btnName} addClass="small" disabled={isDisable} onClick={handleWorkState} />
     </CardWrap>
   );
 }

@@ -17,7 +17,7 @@ export const headerMenuList = [
   { href: "/schedule", menu: "일정관리" },
   { href: "/boards", menu: "게시판" },
   { href: "/organization", menu: "조직도" },
-  { href: "/admin/company-info", menu: "관리자", adminOnly: true },
+  { href: "/admin", menu: "관리자", adminOnly: true },
 ];
 
 export default function HeadMenuList({ variant = "menu-row", onClick }: IHeadMenu) {
@@ -25,12 +25,19 @@ export default function HeadMenuList({ variant = "menu-row", onClick }: IHeadMen
   const { useUserInfo } = useHooks();
   const user = useUserInfo();
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return path === "/";
+    }
+    return path.startsWith(href);
+  };
+
   return (
     <ul className={style[variant]}>
       {headerMenuList
         .filter((m) => !(m.adminOnly && !user?.admin))
         .map((m, i) => (
-          <li key={i} className={`${style.menu} ${path === m.href && path.startsWith(m.href) ? style.active : ""}`.trim()}>
+          <li key={i} className={`${style.menu} ${isActive(m.href) ? style.active : ""}`.trim()}>
             <Link href={m.href} onClick={onClick}>
               {m.menu}
             </Link>

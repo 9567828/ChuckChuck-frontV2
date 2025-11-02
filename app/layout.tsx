@@ -3,6 +3,7 @@ import "../styles/global-style.ts";
 import QueryProvider from "./QueryProvider";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { CookiesProvider } from "next-client-cookies/server";
 
 export const metadata: Metadata = {
   title: "ChuckChuck",
@@ -20,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body>
         <QueryProvider>
-          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <CookiesProvider>
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+          </CookiesProvider>
         </QueryProvider>
       </body>
     </html>

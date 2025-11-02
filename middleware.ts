@@ -14,12 +14,14 @@ export async function middleware(req: NextRequest) {
     res.cookies.delete("isLogin");
     res.cookies.delete("userId");
     res.cookies.delete("autoLogin");
+    res.cookies.delete("role");
     return NextResponse.redirect(redirectUrl);
   }
 
   if (autoLogin && !userId) {
     res.cookies.delete("isLogin");
     res.cookies.delete("autoLogin");
+    res.cookies.delete("role");
     return NextResponse.redirect(redirectUrl);
   }
 

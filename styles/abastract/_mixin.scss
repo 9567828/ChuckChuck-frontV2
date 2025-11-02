@@ -18,7 +18,7 @@
   }
 }
 
-@mixin grid-col($col, $justi, $align, $gap) {
+@mixin grid-col($col, $justi: null, $align:null, $gap:null) {
   display: grid;
   @if $col {
     grid-template-columns: $col;

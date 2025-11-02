@@ -22,6 +22,9 @@
   &:disabled {
     background-color: $gray-300;
   }
+  &.nomal {
+    width: 100%;
+  }
 }
 
 .label {

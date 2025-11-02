@@ -11,16 +11,30 @@ interface IBoard {
   src: string;
   onClick?: () => void;
   allBtn?: boolean;
+  isAdmin?: boolean;
 }
 
-export default function CardWrap({ children, bg = "gray", title, lenght = 0, allBtn = true, src, onClick }: IBoard) {
+export default function CardWrap({
+  children,
+  bg = "gray",
+  title,
+  lenght = 0,
+  allBtn = true,
+  isAdmin = false,
+  src,
+  onClick,
+}: IBoard) {
   return (
     <div className={`${style["card-wrap"]} ${style[bg]}`}>
-      <div className={style["title-wrap"]}>
+      <div className={`${style["title-wrap"]} ${isAdmin ? style.admin : ""}`.trim()}>
         <div className={style.flex}>
-          <img src={`/imgs/main-icons/${src}`} alt={title} />
+          {src !== "" ? <img src={`/imgs/main-icons/${src}`} alt={title} /> : null}
           <p className="bodyMd-b">{title}</p>
-          {lenght ? <p className={style["info-txt"]}>확인하지 않은 결재 ({lenght})</p> : null}
+          {lenght ? (
+            <p className={style["info-txt"]}>{`${
+              title === "전자결재" ? `확인하지 않은 결재 (${lenght})` : title === "출퇴근 누락" ? `결근 ${lenght}명` : ""
+            }`}</p>
+          ) : null}
         </div>
         {allBtn ? (
           <button type="button" onClick={onClick} className={style["goAll-btn"]}>

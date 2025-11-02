@@ -18,17 +18,14 @@ const noticeList = [
     title: "1층 화장실 임시 통제 안내",
     date: "2024.12.06(금) 14:00",
   },
-  {
-    title: "1층 화장실 임시 통제 안내",
-    date: "2024.12.06(금) 14:00",
-  },
 ];
 
-export default function Notice() {
+export default function Notice({ userRole }: { userRole: string }) {
+  const sliceNum = userRole === "true" ? 3 : noticeList.length;
   return (
     <CardWrap title="공지사항" src="ic_fill_notice.svg" bg="white">
       <div className={style["notice-wrap"]}>
-        {noticeList.map((n, i) => (
+        {noticeList.slice(0, sliceNum).map((n, i) => (
           <Link key={i} href={""} className={style["notice-list"]}>
             <p className="eclips">{n.title}</p>
             <p className="captionXs-r">{n.date}</p>
