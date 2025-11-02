@@ -2,7 +2,7 @@ export const makeTwoDigit = (num: number) => {
   return String(num).padStart(2, "0");
 };
 
-export const formatDateToString = (date: Date, pattern: "yyyy-MM-dd" | "yyyy.MM.dd" | "yMd(a)") => {
+export const formatDateToString = (date: Date, pattern: "yyyy-MM-dd" | "yyyy.MM.dd" | "yMd(a)" | "yMd") => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -23,6 +23,10 @@ export const formatDateToString = (date: Date, pattern: "yyyy-MM-dd" | "yyyy.MM.
 
   if (pattern === "yMd(a)") {
     return `${year}년 ${monthStr}월 ${dayStr}일(${dayAttr[aa]})`;
+  }
+
+  if (pattern === "yMd") {
+    return `${year}년 ${monthStr}월 ${dayStr}일`;
   }
 };
 

@@ -3,7 +3,7 @@
 import { IUser, tempUser } from "@/utils/tempUser";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
-import { useUserQuery } from "./react-query/useQuery/useQuery";
+import { useUserQuery } from "./tanstack-query/useQuery/useQuery";
 
 const paths = [
   { href: "/join", title: "이름 / 생년월일" },

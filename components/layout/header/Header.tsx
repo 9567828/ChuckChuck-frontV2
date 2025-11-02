@@ -33,7 +33,7 @@ export default function Header() {
 
   return (
     <div>
-      <div className={`${isOpen ? style.bg : ""}`.trim()}></div>
+      <div className={`${isOpen ? style.bg : ""}`.trim()} onClick={() => setIsOpen(false)}></div>
       <Hamburger isOpen={isOpen} onClick={() => setIsOpen(false)} menuClose={() => setIsOpen(false)} />
       <header className={style.header}>
         <nav className={style.nav}>

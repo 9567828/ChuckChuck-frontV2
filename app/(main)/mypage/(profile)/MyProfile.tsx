@@ -15,6 +15,7 @@ export default function MyProfile({ userId }: { userId: string }) {
   const { useRoute } = useHooks();
   const [openModal, setOpenModal] = useState<Record<string, boolean>>({
     marketing: false,
+    password: false,
   });
 
   const handleModal = (modal: modal) => {
