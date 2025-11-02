@@ -2,7 +2,7 @@
 @use "sass:math";
 @use "variables" as *;
 
-@mixin flex($col, $justi, $align, $gap) {
+@mixin flex($col:null, $justi:null, $align:null, $gap:null) {
   display: flex;
   @if $col {
     flex-direction: column;
@@ -86,13 +86,13 @@
 // 폰트 클래스 생성
 @mixin gen-font-class ($basename) {
   .#{$basename}-b {
-    @include font-theme($basename, $bold);
+    @include font-theme($basename, $b);
   }
   .#{$basename}-m {
-    @include font-theme($basename, $medium);
+    @include font-theme($basename, $m);
   }
   .#{$basename}-r {
-    @include font-theme($basename, $regular);
+    @include font-theme($basename, $r);
   }
 }
 
@@ -103,7 +103,7 @@
   padding: 2px 6px;
   background-color: $main-color;
   color: $bg-white;
-  @include font-theme($captionXxs, $medium);
+  @include font-theme($captionXxs, $m);
   line-height: unset;
 }
 

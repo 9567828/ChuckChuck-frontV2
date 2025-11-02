@@ -31,12 +31,12 @@
 
 .first-name {
   position: absolute;
-  @include font-theme($bodyMd, $bold);
+  @include font-theme($bodyMd, $b);
   color: $gray-800;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   &.font-small {
-    @include font-theme($bodySm, $bold);
+    @include font-theme($bodySm, $b);
   }
 }

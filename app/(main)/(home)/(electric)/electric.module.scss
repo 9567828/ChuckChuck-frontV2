@@ -16,7 +16,7 @@
 }
 
 .date {
-  @include font-theme($captionXs, $regular);
+  @include font-theme($captionXs, $r);
   margin-left: 16px;
   position: relative;
   &::before, &::after {

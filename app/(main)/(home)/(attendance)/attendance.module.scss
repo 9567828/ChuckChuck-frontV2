@@ -8,6 +8,6 @@
 }
 
 .text {
-  @include font-theme($bodySm, $medium);
+  @include font-theme($bodySm, $m);
   color: $gray-700;
 }

@@ -67,8 +67,7 @@ export default function Header() {
         </nav>
       </header>
       {openModal.request ? <RequestModal onClose={() => handleModal("request")} /> : null}
-      <AlarmModal onClose={() => handleModal("alarm")} />
-      {/* {openModal.alarm ? <AlarmModal onClose={() => handleModal("alarm")} /> : null} */}
+      {openModal.alarm ? <AlarmModal onClose={() => handleModal("alarm")} /> : null}
       {openModal.profile ? <ProfileModal onClose={() => handleModal("profile")} /> : null}
     </div>
   );

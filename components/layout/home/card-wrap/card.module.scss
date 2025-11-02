@@ -27,12 +27,12 @@
 }
 
 .info-txt {
-  @include font-theme($captionXxs, $medium);
+  @include font-theme($captionXxs, $m);
   color: $main-color;
 }
 
 .goAll-btn {
   text-decoration: underline;
   color: $gray-600;
-  @include font-theme($captionXs, $medium);
+  @include font-theme($captionXs, $m);
 }

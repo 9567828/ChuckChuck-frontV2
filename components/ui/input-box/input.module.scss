@@ -4,7 +4,7 @@
   padding: 0 16px;
   border: 1px solid $gray-300;
   border-radius: 20px;
-  @include font-theme($bodyMd, $medium);
+  @include font-theme($bodyMd, $m);
 
   &.search { padding-left: 58px; }
   &.small { 
@@ -12,7 +12,7 @@
     height: 48px;
     padding: 0 12px;
     border-radius: 10px;
-    @include font-theme($bodySm, $medium);
+    @include font-theme($bodySm, $m);
   }
   &.small.search {padding-left: 40px;}
 
@@ -60,7 +60,7 @@
     top: 50%;
     right: 42px;
     transform: translateY(-50%);
-    @include font-theme($bodyMd, $medium);
+    @include font-theme($bodyMd, $m);
     color: $gray-400;
   }
 }

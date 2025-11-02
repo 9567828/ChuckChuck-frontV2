@@ -10,7 +10,7 @@
 .menu {
   padding: 8px 16px;
   border-radius: 10px;
-  @include font-theme($bodyMd, $bold);
+  @include font-theme($bodyMd, $b);
   &.active {
     background-color: $main-color;
     color: white;

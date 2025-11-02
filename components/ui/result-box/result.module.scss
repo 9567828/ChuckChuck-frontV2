@@ -8,9 +8,9 @@
 }
 
 .email {
-  @include font-theme($bodyMd, $medium);
+  @include font-theme($bodyMd, $m);
 }
 
 .meta {
-  @include font-theme($captionXs, $regular);
+  @include font-theme($captionXs, $r);
 }

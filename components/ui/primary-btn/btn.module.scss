@@ -4,7 +4,7 @@
   padding: 18px 32px;
   box-shadow: $shadow;
   border-radius: 20px;
-  @include font-theme($bodyMd, $bold);
+  @include font-theme($bodyMd, $b);
   background-color: $main-color;
   color: $bg-white;
   &:hover:not(.secondary, .google) {

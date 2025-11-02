@@ -20,6 +20,6 @@
 }
 
 .date-text {
-  @include font-theme($captionXs, $medium);
+  @include font-theme($captionXs, $m);
   color: $gray-600;
 }

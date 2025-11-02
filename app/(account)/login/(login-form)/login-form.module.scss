@@ -4,7 +4,7 @@
 }
 
 .label {
-  @include font-theme($bodySm, $regular);
+  @include font-theme($bodySm, $r);
   color: $gray-700;
 }
 
@@ -16,7 +16,7 @@
 
 .find-account {
   @include flex(null, center, center, 12px);
-  @include font-theme($bodySm, $regular);
+  @include font-theme($bodySm, $r);
   color: $gray-700;
   li:first-child {
     position: relative;

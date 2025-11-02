@@ -4,7 +4,7 @@
   color: $bg-red;
   text-align: left;
   white-space: pre-line;
-  @include font-theme($captionXs, $medium);
+  @include font-theme($captionXs, $m);
   &.show {
     visibility: visible;
   }

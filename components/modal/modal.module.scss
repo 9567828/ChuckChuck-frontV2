@@ -1,23 +1,44 @@
-// 요청 모달
-.request-wrap {
+// 공통스타일
+.content-wrap {
+  width: 216px;
   @include flex(column, center, null, 10px);
-  padding: 10px 24px;
+  padding: 14px 0;
+  &.profile {
+    gap: unset;
+    padding: unset;
+  }
 }
+
+.meta {
+  @include font-theme($captionXxs, $r);
+  color: $gray-500;
+  margin-top: 8px;
+}
+
+// 요청 모달
 .request-content {
   @include flex(column, center, null, 16px);
   padding: 14px 0;
 }
 
-.person-meta {
-  @include font-theme($captionXxs, $regular);
-  color: $gray-500;
-  margin: 8px 0 3px;
-}
-
 // 프로필모달
 .txt-pad {
-  width: 216px;
-  @include font-theme($captionXs, $regular);
+  @include font-theme($captionXs, $r);
   padding: 8px 0;
   text-align: left;
+}
+
+// 알람모달
+.eclips {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.flex-wrap {
+  @include flex($justi: space-between, $align: center);
+  @include font-theme($captionXs, $r);
+  color: $gray-500;
 }

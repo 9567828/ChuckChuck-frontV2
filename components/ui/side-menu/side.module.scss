@@ -8,7 +8,7 @@
 
 .menu {
   display: block;
-  @include font-theme($captionXs, $bold);
+  @include font-theme($captionXs, $b);
   padding: 6px 12px;
   border-radius: 10px;
   &.active {
@@ -19,7 +19,7 @@
 
 .sub-menu {
   @extend .menu;
-  @include font-theme($captionXxs, $medium);
+  @include font-theme($captionXxs, $m);
 }
 
 .flex {

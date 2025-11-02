@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import MainModalLayout from "../layout/main-modal/MainModal";
+import MainModalLayout from "../layout/main-modal/MainModalLayout";
 import style from "./modal.module.scss";
 import { useHooks } from "@/hooks/useHooks";
 import { useEffect, useState } from "react";
@@ -30,12 +30,14 @@ export default function ProfileModal({ onClose }: { onClose: () => void }) {
 
   return (
     <MainModalLayout title="프로필" onClose={onClose} variant="content-wrap" addClass="profile">
-      <Link href={"/mypage"} className={style["txt-pad"]}>
-        프로필 변경
-      </Link>
-      <button className={style["txt-pad"]} style={{ color: "#FF5116" }} onClick={hadleLogout}>
-        로그아웃
-      </button>
+      <div className={`${style["content-wrap"]} ${style.profile}`}>
+        <Link href={"/mypage"} className={style["txt-pad"]}>
+          프로필 변경
+        </Link>
+        <button className={style["txt-pad"]} style={{ color: "#FF5116" }} onClick={hadleLogout}>
+          로그아웃
+        </button>
+      </div>
     </MainModalLayout>
   );
 }

@@ -16,6 +16,6 @@
 
 .menu-head {
   padding: 0 12px;
-  @include font-theme($bodyMd, $bold);
+  @include font-theme($bodyMd, $b);
   margin-bottom: 32px;
 }

@@ -72,7 +72,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @include font-theme($captionXs, $bold);
+  @include font-theme($captionXs, $b);
+}
+
+// 헤더, 알람 모달 active dot
+.alarm-dot {
+  width: 8px;
+  height: 8px;
+  background-color: $main-color;
+  border-radius: 100%;
 }
 
 /* input, button 초기설정 */
@@ -142,7 +150,7 @@ input[type=number] {
 /* modal sub 버튼*/
 @include sub-btn-class('flexible', fit-content, 20px);
 @include sub-btn-class('large', 56px, 24px);
-@include sub-btn-class('regular', 40px, 20px);
+@include sub-btn-class('r', 40px, 20px);
 
 .sub-btn-xlarge {
   border-radius: 8px;
@@ -166,8 +174,8 @@ input[type=number] {
   @extend .sub-btn-large;
   @include sub-btn-cancel-style;
 }
-.sub-btn-regular.cancel {
-  @extend .sub-btn-regular;
+.sub-btn-r.cancel {
+  @extend .sub-btn-r;
   @include sub-btn-cancel-style;
 }
 
@@ -186,7 +194,7 @@ input[type=number] {
   border: 0.5px solid $gray-300;
   background-color: $bg-white;
   color: $gray-700;
-  @include font-theme($captionXs, $medium);
+  @include font-theme($captionXs, $m);
   text-align: center;
 }
 
@@ -267,7 +275,7 @@ input[type='radio']:checked {
   align-items: center;
   cursor: pointer;
   .select-one {
-    @include font-theme($captionXs, $medium);
+    @include font-theme($captionXs, $m);
     color: $gray-400;
   }
   .select-one.on {
@@ -284,7 +292,7 @@ input[type='radio']:checked {
   border-radius: 8px;
   background-color: $bg-white;
   box-shadow: $shadow;
-  @include font-theme($captionXxs, $medium);
+  @include font-theme($captionXxs, $m);
   p { 
     cursor: pointer; 
       &:not(:last-child, .sel-options-square p) { 
