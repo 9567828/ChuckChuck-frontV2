@@ -1,0 +1,41 @@
+.card-wrap {
+  width: 100%;
+  height: fit-content;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: $shadow;
+  @include flex(column, center, null, 8px);
+  &.gray {
+    background-color: $gray-100;
+  }
+
+  &.white {
+    background-color: white;
+  }
+}
+
+.title-wrap {
+  @include flex(null, space-between, center, null);
+  padding: 8.5px 14px;
+  &.admin {
+    padding: 11px 14px;
+  }
+}
+
+.flex {
+  @extend .title-wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: unset;
+}
+
+.info-txt {
+  @include font-theme($captionXxs, $m);
+  color: $main-color;
+}
+
+.goAll-btn {
+  text-decoration: underline;
+  color: $gray-600;
+  @include font-theme($captionXs, $m);
+}

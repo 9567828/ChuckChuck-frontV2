@@ -1,0 +1,15 @@
+.input-wrap {
+  padding: 8px 0;
+  text-align: left;
+}
+
+.birth-wrap {
+  padding: 16px 0;
+  @include flex(null, space-between, center, null);
+  margin-bottom: 24px;
+}
+
+.terms-wrap {
+  @include flex(column, center, null, 12px);
+  margin-bottom: 77px;
+}

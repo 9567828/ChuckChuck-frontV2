@@ -4,21 +4,26 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx next dev --experimental-https --experimental-https-key ./certificates/ssl.key --experimental-https-cert ./certificates/ssl.crt",
+    "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.2",
     "axios": "^1.12.2",
+    "crypto-js": "^4.2.0",
+    "date-fns": "^4.1.0",
     "lottie-react": "^2.4.1",
     "next": "15.5.4",
+    "next-client-cookies": "^2.1.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sass": "^1.93.2",
+    "styled-components": "^6.1.19",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

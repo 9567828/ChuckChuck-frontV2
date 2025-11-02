@@ -1,0 +1,17 @@
+.error {
+  visibility: hidden;
+  padding: 0 8px;
+  color: $bg-red;
+  text-align: left;
+  white-space: pre-line;
+  @include font-theme($captionXs, $m);
+  &.show {
+    visibility: visible;
+  }
+}
+
+.info {
+  @extend .error;
+  color: $gray-600;
+  visibility: unset;
+}

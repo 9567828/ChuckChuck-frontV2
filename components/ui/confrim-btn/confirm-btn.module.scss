@@ -1,0 +1,35 @@
+.btn-wrap {
+  @include flex(null, null, center, 4px);
+}
+
+.modal-v1 {
+  padding: 1px 6px;
+  border-radius: 3px;
+  @include font-theme($captionXxs, $m);
+  background-color: $main-color;
+  color: white;
+  &.cancel {
+    background-color: white;
+    color: black;
+    border: 1px solid $gray-300;
+  }
+}
+
+.modal-v2 {
+  @extend .modal-v1;
+  width: 56px;
+  height: 24px;
+}
+
+.action {
+  height: 100%;
+  @extend .modal-v1;
+  padding: 8px 12px;
+  border-radius: 10px;
+  @include font-theme($bodySm, $b);
+  box-shadow: $shadow;
+  &.cancel {
+    border: unset;
+    background-color: $gray-300;
+  }
+}

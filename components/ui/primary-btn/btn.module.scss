@@ -1,0 +1,52 @@
+.primary {
+  height: 64px;
+  @include flex(null, center, center, 10px);
+  padding: 18px 32px;
+  box-shadow: $shadow;
+  border-radius: 20px;
+  @include font-theme($bodyMd, $b);
+  background-color: $main-color;
+  color: $bg-white;
+  &:hover:not(.secondary, .google) {
+    background-color: $main-hover-color;
+  }
+  &.long {
+    width: 520px;
+  }
+  &.nomal {
+    width: 100%;
+  }
+  &.small {
+    width: 100%;
+    border-radius: 10px;
+  }
+  &.edit {
+    width: max-content;
+    height: 100%;
+    border-radius: 10px;
+    padding: 8px 12px;
+    @include font-theme($bodySm, $b);
+  }
+}
+
+.secondary {
+  @extend .primary;
+  background-color: $bg-white;
+  color: $bg-black;
+  border: 1px solid $gray-600;
+  &:disabled {
+    border: unset;
+  }
+}
+
+.google {
+  @extend .primary;
+  background-color: $bg-white;
+  color: $bg-black;
+  width: 520px;
+  border: 1px solid $gray-400;
+  box-shadow: unset;
+  img {
+    height: 40px;
+  }
+}

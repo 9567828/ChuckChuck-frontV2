@@ -1,0 +1,34 @@
+.form {
+  @include flex(column, center, null, 16px);
+  padding: 16px 0;
+}
+
+.label {
+  @include font-theme($bodySm, $r);
+  color: $gray-700;
+}
+
+.auto-wrap {
+  @include flex(null, space-between, center, null);
+  padding: 8px 0;
+  margin-bottom: 28px;
+}
+
+.find-account {
+  @include flex(null, center, center, 12px);
+  @include font-theme($bodySm, $r);
+  color: $gray-700;
+  li:first-child {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "|";
+      top: 0;
+      right: -8px;
+    }
+  }
+}
+
+.btn-wrap {
+  @include flex(column, center, center, 12px);
+}

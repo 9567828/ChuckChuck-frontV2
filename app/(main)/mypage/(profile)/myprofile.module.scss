@@ -1,0 +1,30 @@
+.container {
+  @include flex(column, $gap: 24px);
+}
+
+.info-wrap {
+  @include flex(column, $gap: 16px);
+}
+
+.meta-wrap {
+  @include flex(column, $gap: 12px);
+}
+
+.meta {
+  @include grid-col(70px 1fr, $gap: 54px);
+  @include font-theme($captionXs, $m);
+  color: $gray-600;
+}
+
+.terms-wrap {
+  margin-top: 48px;
+  @extend .meta-wrap;
+  align-items: flex-start;
+  @include font-theme($captionXs, $m);
+  button {
+    color: #5284DB;
+    &.leave {
+      color: rgba(255, 22, 26, 0.8);
+    }
+  }
+}

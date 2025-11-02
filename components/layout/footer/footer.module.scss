@@ -1,0 +1,23 @@
+.footer { height: 75px; }
+
+.terms-list {
+  @include flex(null, center, center, 12px);
+}
+
+.terms-list li a {
+  color: $gray-700;
+}
+
+.terms-list .middle-menu { position: relative; }
+
+.terms-list .middle-menu::before,
+.terms-list .middle-menu::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 16px;
+  background-color: $gray-700;
+}
+
+.terms-list .middle-menu::before { left: -7px; }
+.terms-list .middle-menu::after { right: -7px; }

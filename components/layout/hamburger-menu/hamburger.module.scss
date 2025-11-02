@@ -1,0 +1,16 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 275px;
+  transform: translateX(-275px);
+  height: 100%;
+  @include flex(null, space-between, flex-start, null);
+  padding: 41px 34px 0;
+  background-color: white;
+  z-index: 4;
+  transition: transform 0.45s ease-in-out;
+  &.open {
+    transform: translateX(0);
+  }
+}
