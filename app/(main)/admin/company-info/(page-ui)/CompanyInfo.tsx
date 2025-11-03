@@ -27,7 +27,7 @@ export default function CompanyInfo() {
           onChange={(e) => setNameValue(e.target.value)}
         />
         <InputEditProfile
-          id="companyName"
+          id="companyInfo"
           type="text"
           label="회사 소개"
           placeholder="ex) Chuck Chuck은 무엇이든 척척"
@@ -35,7 +35,7 @@ export default function CompanyInfo() {
           onChange={(e) => setInfoValue(e.target.value)}
         />
         <InputEditProfile
-          id="companyName"
+          id="companyAddr"
           type="text"
           label="회사 주소"
           placeholder="시/구/동/길"
@@ -43,7 +43,7 @@ export default function CompanyInfo() {
           onChange={(e) => setAdrValue(e.target.value)}
         />
         <InputEditProfile
-          id="companyName"
+          id="companyTel"
           type="tel"
           label="회사 번호"
           placeholder="ex) 02-123-1234"

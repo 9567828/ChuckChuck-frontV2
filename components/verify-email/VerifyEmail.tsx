@@ -1,7 +1,7 @@
 "use client";
 
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
-import React, { FormEvent, FormHTMLAttributes, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import InputBox from "../ui/input-box/InputBox";
 import FormMessage from "../ui/form-message/FormMessage";
 import { handleRegex } from "@/utils/regex";

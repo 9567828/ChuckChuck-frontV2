@@ -3,7 +3,7 @@ import style from "./period-date-picker.module.scss";
 import { usePeriodDateStore } from "@/hooks/zustand/usePeriodDateStore";
 import { formatDateToString } from "@/utils/formatDate";
 
-export default function PeriodBtn() {
+export default function PeriodDatePicker() {
   const { today, day, week, month, setDate } = usePeriodDateStore();
 
   return (

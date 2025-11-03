@@ -17,7 +17,7 @@ export default function InputEditProfile({ label, id, type, placeholder, value, 
       <p className="label-title">{label}</p>
       <InputBox
         type={type}
-        isSmall={true}
+        addClass="small"
         id={id}
         placeholder={placeholder}
         value={value}

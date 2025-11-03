@@ -3,35 +3,30 @@ import style from "./input.module.scss";
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   isId?: boolean;
-  isBirth?: boolean;
   birthContent?: string;
-  isSmall?: boolean;
-  isSearch?: boolean;
+  variant?: "birth" | "search" | "nomal";
+  addClass?: "small" | "xsmall";
 }
 
-export default function InputBox({
-  isId = false,
-  isSmall = false,
-  isSearch = false,
-  isBirth = false,
-  birthContent,
-  ...props
-}: IInput) {
+export default function InputBox({ isId = false, birthContent, variant, addClass, ...props }: IInput) {
   return (
-    <label id={props.id} className={`${isBirth ? style["birth-label"] : style.label}`.trim()} data-content={birthContent}>
+    <label
+      id={props.id}
+      className={`${variant === "birth" ? style["birth-label"] : style.label}`.trim()}
+      data-content={birthContent}
+    >
       <input
         {...props}
-        className={`${style.input} ${isSmall ? style.small : ""} ${isSearch ? style.search : ""} ${
-          isBirth ? style["input-birth"] : ""
+        className={`${style.input} ${variant === "birth" ? style["input-birth"] : variant ? style[variant] : ""} ${
+          addClass ? style[addClass] : ""
         }`.trim()}
         style={birthContent === "년" ? { width: "160px" } : isId ? { width: "320px" } : undefined}
       />
-      {isSearch ? (
+      {variant === "search" ? (
         <img
           src="/imgs/icons/ic_search.svg"
           alt="검색아이콘"
-          className={style.icon}
-          style={isSmall ? { width: "24px", height: "24px" } : undefined}
+          className={`${style.icon} ${addClass ? style[addClass] : ""}`.trim()}
         />
       ) : null}
     </label>

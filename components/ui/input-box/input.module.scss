@@ -25,6 +25,18 @@
   &.nomal {
     width: 100%;
   }
+  &.xsmall {
+    width: 160px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 10px;
+  }
+  &.xsmall.search { 
+    padding-left: 40px;
+    &:focus {
+      padding-left: 12px;
+    }
+  }
 }
 
 .label {
@@ -42,6 +54,14 @@
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
+  &.small, &.xsmall {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.xsmall {
+    left: 12px;
+  }
 }
 
 .input:focus-within + .icon {

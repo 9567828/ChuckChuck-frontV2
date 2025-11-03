@@ -40,6 +40,8 @@
 
 .admin-inner {
   padding: 40px;
+  height: 100%;
+  min-height: calc(100vh - 146px);
 }
 
 @media screen and (max-width: 1439px) {
@@ -106,6 +108,14 @@ button:disabled, button[disabled] {
   background-color: $gray-500;
   color: $bg-white;
   pointer-events: none;
+}
+
+select, option {
+  outline: none;
+  border: none;
+  -webkit-appearance:none; /* 크롬 화살표 없애기 */
+  -moz-appearance:none; /* 파이어폭스 화살표 없애기 */
+  appearance:none /* 화살표 없애기 */
 }
 
 input::placeholder {
@@ -192,44 +202,6 @@ input[type=number] {
   @include sub-btn-cancel-style;
 }
 
-/* 일,주,월 버튼 */
-.date-pick-wrap, .date-pick {
-  @include flex(null, null, center, 6px);
-  cursor: pointer;
-}
-
-.date-pick { justify-content: center; gap: 0; }
-
-.date-btn {
-  height: 28px;
-  padding: 2px 12px;
-  border-radius: 4px;
-  border: 0.5px solid $gray-300;
-  background-color: $bg-white;
-  color: $gray-700;
-  @include font-theme($captionXs, $m);
-  text-align: center;
-}
-
-.date-btn.on {
-  background-color: $main-color;
-  color: $bg-white;
-}
-
-.date-btn.date-day {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.date-btn.date-week { border-radius: 0; }
-
-.date-btn.date-month {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-left: 0;
-}
-
 .toggle-btn {
   position: relative;
   width: 48px;
@@ -273,77 +245,6 @@ input[type='radio']:checked {
   background-color: #436AF5; /*체크 시 내부 원 색상*/
   border: 2px solid #fff; /*라인이 아닌, 라인과 원 사이 색상*/
   box-shadow: 0 0 0 1px #436AF5; /*라인*/
-}
-
-/* 부서 셀렉트 박스 */
-.select-wrap { width: 160px; }
-.select-box {
-  width: 100%; 
-  height: 40px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid $gray-300;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  .select-one {
-    @include font-theme($captionXs, $m);
-    color: $gray-400;
-  }
-  .select-one.on {
-    color: $bg-black;
-  }
-  img { transform: rotate(90deg); }
-}
-
-.sel-options {
-  position: absolute;
-  width: 160px;
-  margin-top: 6px;
-  padding: 8px 16px;
-  border-radius: 8px;
-  background-color: $bg-white;
-  box-shadow: $shadow;
-  @include font-theme($captionXxs, $m);
-  p { 
-    cursor: pointer; 
-      &:not(:last-child, .sel-options-square p) { 
-        margin-bottom: 10px; 
-    }
-  }
-}
-
-.select-box-square {
-  @extend .select-box;
-  height: auto;
-  padding: 6px 12px;
-  border-radius: 0;
-  &.active {
-    border-bottom: 0;
-    height: 35px;
-  }
-  .select-one {
-    color: $bg-black;
-  }
-}
-
-.sel-options-square {
-  @extend .sel-options;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  border: 1px;
-  border-top: 0;
-  border-style: solid;
-  border-color: $gray-300;
-  border-radius: 0;
-  p {
-    padding: 6px 12px;
-    &.active {
-      color: $main-color;
-    }
-  }
 }
 
 /* 체크박스 */

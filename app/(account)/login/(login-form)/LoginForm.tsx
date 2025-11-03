@@ -10,9 +10,9 @@ import { FormEvent, useState } from "react";
 import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";
 import { handleRegex } from "@/utils/regex";
-import { useCreateMutation } from "@/hooks/react-query/useMutation";
 import { useQueryClient } from "@tanstack/react-query";
 import PasswordBox from "@/components/ui/input-box/PasswordBox";
+import { useCreateMutation } from "@/hooks/tanstack-query/useMutation";
 
 const findAccount = [
   { href: "/auth/find-id", name: "아이디 찾기" },

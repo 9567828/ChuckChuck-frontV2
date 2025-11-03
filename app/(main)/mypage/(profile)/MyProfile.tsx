@@ -6,7 +6,7 @@ import style from "./myprofile.module.scss";
 import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 import MarketingAgree from "@/components/modal/MarketingAgree";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditPassword from "@/components/modal/EditPassword";
 
 type modal = "marketing" | "password";
@@ -23,6 +23,11 @@ export default function MyProfile({ userId }: { userId: string }) {
       [modal]: !prev[modal],
     }));
   };
+
+  useEffect(() => {
+    document.body.style.overflow = openModal.marketing || openModal.password ? "hidden" : "auto";
+  }, [openModal.marketing, openModal.password]);
+
   const getUserInfo = tempUser.find((u) => u.email === userId);
 
   const metaList = [

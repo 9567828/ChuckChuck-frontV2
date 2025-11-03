@@ -143,7 +143,7 @@ export default function JoinForm() {
         <FormMessage pdTop="0" text={msg} />
         <div className={style["birth-wrap"]}>
           <InputBox
-            isBirth={true}
+            variant="birth"
             type="tel"
             id="inputYear"
             placeholder="YYYY"
@@ -153,7 +153,7 @@ export default function JoinForm() {
             onChange={(e) => setInputYear(e.target.value)}
           />
           <InputBox
-            isBirth={true}
+            variant="birth"
             type="text"
             id="inputMonth"
             placeholder="MM"
@@ -163,7 +163,7 @@ export default function JoinForm() {
             onChange={(e) => handleBirth(e, 12, setInputMonth)}
           />
           <InputBox
-            isBirth={true}
+            variant="birth"
             type="text"
             id="inputDate"
             placeholder="DD"
