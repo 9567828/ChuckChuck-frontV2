@@ -4,7 +4,7 @@ import InputBox from "@/components/ui/input-box/InputBox";
 import style from "./login-form.module.scss";
 import CheckBox from "@/components/ui/check-box/CheckBox";
 import Link from "next/link";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import FormMessage from "@/components/ui/form-message/FormMessage";
 import { FormEvent, useState } from "react";
 import { tempUser } from "@/utils/tempUser";

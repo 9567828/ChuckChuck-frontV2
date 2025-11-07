@@ -50,3 +50,14 @@
     height: 40px;
   }
 }
+
+.edit-btn {
+  width: 70px;
+  @include flex($justi: center, $align: center);
+  background-color: $gray-500;
+  border-radius: 4px;
+  p {
+    @include font-theme($captionXxs, $m);
+    color: white;
+  }
+}

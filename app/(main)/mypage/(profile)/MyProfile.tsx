@@ -3,7 +3,7 @@
 import ProfileImg from "@/components/layout/ProfileImg";
 import { tempUser } from "@/utils/tempUser";
 import style from "./myprofile.module.scss";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 import MarketingAgree from "@/components/modal/MarketingAgree";
 import { useEffect, useState } from "react";

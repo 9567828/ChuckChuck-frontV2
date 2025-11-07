@@ -3,7 +3,7 @@
 import CheckBox from "@/components/ui/check-box/CheckBox";
 import InputBox from "@/components/ui/input-box/InputBox";
 import FormMessage from "@/components/ui/form-message/FormMessage";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import style from "./join.module.scss";
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction, useEffect, useState } from "react";
 import { handleRegex } from "@/utils/regex";

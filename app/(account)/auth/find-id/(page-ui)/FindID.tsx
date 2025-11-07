@@ -2,7 +2,7 @@
 
 import InputBox from "@/components/ui/input-box/InputBox";
 import FormMessage from "@/components/ui/form-message/FormMessage";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { FormEvent, useState } from "react";
 import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";

@@ -2,7 +2,7 @@
 
 import style from "./result.module.scss";
 import ResultBox from "@/components/ui/result-box/ResultBox";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 import { useSearchParams } from "next/navigation";
 

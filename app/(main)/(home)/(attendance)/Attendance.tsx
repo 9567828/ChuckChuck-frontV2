@@ -2,7 +2,7 @@
 
 import CardWrap from "@/components/layout/home/card-wrap/CardWrap";
 import style from "./attendance.module.scss";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { useEffect, useState } from "react";
 import { formatDateToString, formatTimeToString, formatGetHour } from "@/utils/formatDate";
 import { useHooks } from "@/hooks/useHooks";

@@ -2,7 +2,7 @@
 
 import style from "./password.module.scss";
 import FormMessage from "../ui/form-message/FormMessage";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { FormEvent, useEffect, useState } from "react";
 import { useHooks } from "@/hooks/useHooks";
 import sha256 from "crypto-js/sha256";

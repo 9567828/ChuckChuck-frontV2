@@ -1,7 +1,7 @@
 "use client";
 
 import style from "@/styles/components/pages/not-found.module.scss";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 
 export default function NotFound() {

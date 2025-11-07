@@ -4,7 +4,7 @@ import InputBox from "@/components/ui/input-box/InputBox";
 import FormMessage from "@/components/ui/form-message/FormMessage";
 import { FormEvent, useEffect, useState } from "react";
 import style from "./code.module.scss";
-import PrimayBtn from "@/components/ui/primary-btn/PrimaryBtn";
+import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 
 export default function VerifyCode() {
