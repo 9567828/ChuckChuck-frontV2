@@ -1,4 +1,4 @@
-import MainModalLayout from "../layout/main-modal/MainModalLayout";
+import MainModalLayout from "../layout/main-modal-layout/MainModalLayout";
 import ConfirmBtn from "../ui/confrim-btn/ConfirmBtn";
 import style from "./modal.module.scss";
 

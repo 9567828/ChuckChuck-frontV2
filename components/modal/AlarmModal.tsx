@@ -1,4 +1,4 @@
-import MainModalLayout from "../layout/main-modal/MainModalLayout";
+import MainModalLayout from "../layout/main-modal-layout/MainModalLayout";
 import style from "./modal.module.scss";
 
 export default function AlarmModal({ onClose }: { onClose: () => void }) {

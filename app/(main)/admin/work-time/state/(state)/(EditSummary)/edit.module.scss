@@ -1,0 +1,26 @@
+.hover-wrap {
+  width: 70px;
+  position: relative;
+  &:hover .btn-wrap {
+    display: block;
+  }
+}
+
+.btn-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+
+.edit-btn {
+  width: 100%;
+  @include flex($justi: center, $align: center);
+  background-color: $gray-500;
+  border-radius: 4px;
+  p {
+    @include font-theme($captionXxs, $m);
+    color: white;
+  }
+}

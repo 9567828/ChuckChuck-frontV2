@@ -1,4 +1,4 @@
-import CompanyInfo from "./(page-ui)/CompanyInfo";
+import CompanyInfo from "./(screen)/CompanyInfo";
 
 export default function Page() {
   return (

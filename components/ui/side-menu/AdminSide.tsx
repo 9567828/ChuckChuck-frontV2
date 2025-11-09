@@ -14,7 +14,6 @@ const menuItems = [
     submenu: [
       { name: "출퇴근 관리", href: "/admin/work-time/state" },
       { name: "출퇴근 설정", href: "/admin/work-time/setting" },
-      { name: "출퇴근 수정", href: "/admin/work-time/edit" },
     ],
   },
   {

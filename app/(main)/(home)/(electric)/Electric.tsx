@@ -43,7 +43,7 @@ export default function Electric() {
       <div className={style["list-wrap"]}>
         {electricLists.map((e, i) => (
           <Link href={""} key={i} className={style.grid}>
-            <p className="eclips">{e.title}</p>
+            <p className="eclips captionXs-b">{e.title}</p>
             <div className={style.flex}>
               <p className={style.date}>{e.date}</p>
               <AvatarWrap name={e.name} isFullName={true} isSmall={true} src={e.src} alt={e.name} />

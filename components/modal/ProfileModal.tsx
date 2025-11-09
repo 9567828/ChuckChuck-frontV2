@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import MainModalLayout from "../layout/main-modal/MainModalLayout";
+import MainModalLayout from "../layout/main-modal-layout/MainModalLayout";
 import style from "./modal.module.scss";
 import { handleCookie } from "@/utils/cookieUitls";
 

@@ -17,6 +17,7 @@ export default function SelectBox() {
       <p className={selcetItem !== "" ? style.click : ""}>{selcetItem !== "" ? selcetItem : "부서선택"}</p>
       {click ? (
         <ul className={style.options}>
+          <li onClick={(e) => setSelectItem(e.currentTarget.textContent)}>전체</li>
           <li onClick={(e) => setSelectItem(e.currentTarget.textContent)}>경영팀</li>
           <li onClick={(e) => setSelectItem(e.currentTarget.textContent)}>디자인팀</li>
           <li onClick={(e) => setSelectItem(e.currentTarget.textContent)}>개발팀</li>

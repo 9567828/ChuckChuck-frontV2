@@ -27,7 +27,7 @@ export default function Notice({ userRole }: { userRole: string }) {
       <div className={style["notice-wrap"]}>
         {noticeList.slice(0, sliceNum).map((n, i) => (
           <Link key={i} href={""} className={style["notice-list"]}>
-            <p className="eclips">{n.title}</p>
+            <p className="eclips captionXs-b">{n.title}</p>
             <p className="captionXs-r">{n.date}</p>
           </Link>
         ))}

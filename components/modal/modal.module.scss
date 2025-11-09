@@ -47,3 +47,46 @@
 .pw-wrap {
   @include flex(column, $gap: 16px);
 }
+
+// 근무시간변경모달
+.container {
+  @include flex($align: center, $gap: 48px);
+  position: relative;
+}
+.time-wrapper {
+  color: $gray-600;
+}
+
+.time-box {
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: $gray-400;
+  @include flex($justi: center, $align: center);
+  color: $bg-white;
+  margin-top: 3px;
+  @include font-theme($bodySm, $m);
+}
+
+.input-time {
+  @extend .time-box;
+  background-color: $bg-white;
+  border: 1px solid $gray-200;
+  color: $bg-black;
+  text-align: center;
+  padding: 10px;
+}
+
+.arrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 116px;
+}
+
+.info-text {
+  @include font-theme($captionXs, $m);
+  color: $gray-700;
+  margin-top: 16px;
+}

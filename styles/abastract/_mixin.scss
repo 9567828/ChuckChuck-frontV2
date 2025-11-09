@@ -118,3 +118,9 @@
   border: 1px solid $gray-300;
   color: $bg-black;
 }
+
+@mixin eclips {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
