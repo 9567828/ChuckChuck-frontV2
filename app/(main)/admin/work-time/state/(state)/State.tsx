@@ -7,7 +7,7 @@ import SelectBox from "@/components/ui/select-box/SelectBox";
 import InputBox from "@/components/ui/input-box/InputBox";
 import SummaryBox from "./SummaryBox";
 import StateList from "./StateList";
-import { tempEmpWorkTime } from "@/utils/tempUser";
+import { tempEmpWorkTime, tempOrganizationList } from "@/utils/tempUser";
 
 export default function State() {
   const { today, day, week, month } = usePeriodDateStore();
@@ -16,7 +16,7 @@ export default function State() {
     <div className={style["flex-col"]} style={{ gap: "40px" }}>
       <PeriodDatePicker />
       <div className={style.flex} style={{ gap: "8px" }}>
-        <SelectBox />
+        <SelectBox optionList={tempOrganizationList} defaultValue="부서선택" />
         <InputBox variant="search" addClass="xsmall" />
       </div>
       <div className={`${week || month ? style.grid : ""}`.trim()}>

@@ -123,3 +123,5 @@ export const tempEmpWorkTime: IEmpWorkTime[] = [
     etc: "24분",
   },
 ];
+
+export const tempOrganizationList = ["전체", "경영팀", "디자인팀", "개발팀", "영업팀", "마케팅팀", "부서선택", "부서선택"];

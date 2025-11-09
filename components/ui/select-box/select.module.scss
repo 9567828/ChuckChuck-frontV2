@@ -1,97 +1,71 @@
-.select {
+.select-wrap {
+  width: fit-content;
   position: relative;
-  width: 160px;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid $gray-300;
-  @include font-theme($captionXs, $m);
-  color: $gray-400;
-  p {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    &.click {
-      color: $bg-black;
+  &.square-wrap {
+    // @include flex($col: column, $gap: 4px);
+    &.active {
+      position: absolute;
+      background-color: white;
+      border: 1px solid $gray-300;
+      box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+      .select.square {
+        border: 0;
+      }
     }
   }
-  &::after {
-    position: absolute;
-    content: "";
-    @include bgImg($url: "/imgs/icons/ic_move_in.svg", $size: 16px 16px);
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%) rotate(90deg);
+}
+
+.select {
+  @include flex($justi:space-between, $align: center);
+  padding: 0 12px;
+  @include font-theme($captionXs, $m);
+  border: 1px solid $gray-300;
+  &.round {
+    width: 160px;
+    height: 40px;
+    border-radius: 10px;
+    color: $gray-400;
+    p {
+      &.click {
+        color: $bg-black;
+      }
+    }
+    &.on {
+      border: 1px solid black;
+    }
   }
-  &.on {
-    border: 1px solid black;
+  &.square {
+    width: 152px;
+    height: 33px;
   }
 }
 
-.options {
-  position: absolute;
-  top: 46px;
-  left: 0;
+.option {
   width: 100%;
   height: auto;
-  padding: 8px 16px;
-  @include flex(column, $gap: 10px);
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: $shadow;
-  @include font-theme($captionXxs, $m);
-  color: black;
   cursor: pointer;
-  z-index: 10;
+  @include font-theme($captionXxs, $m);
+  &.round {
+    position: absolute;
+    z-index: 10;
+    top: 46px;
+    left: 0;
+    padding: 8px 16px;
+    @include flex(column, $gap: 10px);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: $shadow;
+    color: black;
+  }
+  &.square {
+    top: 37px;
+    left: 0;
+    @include flex($col: column, $gap: 2px);
+    .option-value {
+      padding: 6px 12px;
+      &:hover, &.active {
+        color: $main-color;
+      }
+    }
+  }
 }
-
-// .sel-options {
-//   position: absolute;
-//   width: 160px;
-//   margin-top: 6px;
-//   padding: 8px 16px;
-//   border-radius: 8px;
-//   background-color: $bg-white;
-//   box-shadow: $shadow;
-//   @include font-theme($captionXxs, $m);
-//   p { 
-//     cursor: pointer; 
-//       &:not(:last-child, .sel-options-square p) { 
-//         margin-bottom: 10px; 
-//     }
-//   }
-// }
-
-// .select-box-square {
-//   @extend .select-box;
-//   height: auto;
-//   padding: 6px 12px;
-//   border-radius: 0;
-//   &.active {
-//     border-bottom: 0;
-//     height: 35px;
-//   }
-//   .select-one {
-//     color: $bg-black;
-//   }
-// }
-
-// .sel-options-square {
-//   @extend .sel-options;
-//   height: auto;
-//   margin: 0;
-//   padding: 0;
-//   border: 1px;
-//   border-top: 0;
-//   border-style: solid;
-//   border-color: $gray-300;
-//   border-radius: 0;
-//   p {
-//     padding: 6px 12px;
-//     &.active {
-//       color: $main-color;
-//     }
-//   }
-// }
