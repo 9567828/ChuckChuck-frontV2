@@ -16,7 +16,7 @@ export const usePeriodDateStore = create<IState>((set) => ({
   week: false,
   month: false,
   setDate: (date: date) =>
-    set((prev) => {
+    set(() => {
       if (date === "today") {
         return { today: true, day: true, week: false, month: false };
       }
