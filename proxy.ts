@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { tempToken } from "./utils/tempUser";
 
 export async function proxy(req: NextRequest) {
   const res = NextResponse.next();
 
-  const isLogin = req.cookies.get("isLogin")?.value === "true";
-  const userId = req.cookies.get("userId");
+  const token = req.cookies.get("token")?.value;
+  const isLogin = tempToken.some((t) => t === token);
+
   const autoLogin = req.cookies.get("autoLogin")?.value === "true";
 
   const { pathname } = req.nextUrl;
@@ -12,16 +14,13 @@ export async function proxy(req: NextRequest) {
 
   if (!isLogin && pathname === "/") {
     res.cookies.delete("isLogin");
-    res.cookies.delete("userId");
     res.cookies.delete("autoLogin");
-    res.cookies.delete("role");
     return NextResponse.redirect(redirectUrl);
   }
 
-  if (autoLogin && !userId) {
+  if (autoLogin && !isLogin) {
     res.cookies.delete("isLogin");
     res.cookies.delete("autoLogin");
-    res.cookies.delete("role");
     return NextResponse.redirect(redirectUrl);
   }
 

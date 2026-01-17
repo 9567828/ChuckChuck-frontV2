@@ -58,7 +58,7 @@ export default function SetPassword({ mode }: ISetPw) {
         name,
         optionalAgree: optionalAgree ? true : false,
         password: hashedPw,
-        // joinDate: Date.now()
+        // joinDate: new Date()
       };
       useRoute("/auth/join/request-join");
     }

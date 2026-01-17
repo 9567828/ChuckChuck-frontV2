@@ -1,5 +1,5 @@
 import PageHead from "@/components/layout/PageHead";
-import FindId from "./(page-ui)/FindID";
+import FindId from "./(screen)/FindID";
 
 export default function Page() {
   return (

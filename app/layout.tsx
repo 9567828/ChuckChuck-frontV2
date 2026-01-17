@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/common.scss";
-import QueryProvider from "./QueryProvider";
+import QueryProvider from "./providers";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { CookiesProvider } from "next-client-cookies/server";

@@ -1,5 +1,5 @@
 import PageHead from "@/components/layout/PageHead";
-import ResultPage from "./(result-page)/ResultPage";
+import ResultPage from "./(screen)/ResultPage";
 
 export default async function Page(props: PageProps<"/auth/find-id/result">) {
   const params = await props.searchParams;

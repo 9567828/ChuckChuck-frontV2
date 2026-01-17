@@ -1,12 +1,13 @@
 "use client";
 
 import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import InputBox from "../ui/input-box/InputBox";
 import FormMessage from "../ui/form-message/FormMessage";
 import { handleRegex } from "@/utils/regex";
 import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";
+import VerifyCode from "./(verify-code)/VerifyCode";
 
 interface IValid {
   defaultMsg: string;
@@ -15,7 +16,7 @@ interface IValid {
   mode: "join" | "find-pw";
 }
 
-export default function VerifyEmail({ defaultMsg, btnName, isValid = false, mode }: IValid) {
+export default function VerifyEmail({ defaultMsg, btnName, mode }: IValid) {
   const { handleEmailRegex } = handleRegex();
   const { useRoute } = useHooks();
 
@@ -25,6 +26,10 @@ export default function VerifyEmail({ defaultMsg, btnName, isValid = false, mode
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsErr(false);
+    setMsg("");
+
     if (!handleEmailRegex(email)) {
       setIsErr(true);
       setMsg("유효한 이메일을 입력해 주세요.");
@@ -34,22 +39,36 @@ export default function VerifyEmail({ defaultMsg, btnName, isValid = false, mode
     const existed = tempUser.find((v) => v.email === email);
 
     if (mode === "join") {
-      if (existed !== undefined) {
+      if (existed) {
         setIsErr(true);
         setMsg("이미 존재하는 이메일 입니다.");
-      } else {
-        localStorage.setItem("email", email);
-        useRoute(`/auth/join/verify-email/code`);
+        return;
       }
+
+      // ✅ 성공
+      localStorage.setItem("email", email);
+      useRoute(`/auth/join/verify-email/code`);
     } else {
-      if (existed?.email === email) {
-        useRoute("/auth/find-pw/reset-pw");
-      } else {
+      if (!existed) {
         setIsErr(true);
         setMsg("존재하지 않는 이메일 입니다.");
+        return;
       }
+
+      // ✅ 성공
+      localStorage.setItem("email", email);
+      useRoute(`/auth/find-pw/code`);
     }
   };
+
+  useEffect(() => {
+    const localEmail = localStorage.getItem("email");
+    if (localEmail) {
+      setEmail(localEmail);
+    } else {
+      setEmail("");
+    }
+  }, []);
 
   return (
     <>
@@ -66,7 +85,8 @@ export default function VerifyEmail({ defaultMsg, btnName, isValid = false, mode
           </div>
           <FormMessage pdTop="0" variant={isErr ? "error" : "info"} text={msg} />
         </div>
-        <PrimayBtn type="submit" label={btnName} addClass="long" disabled={isValid} />
+
+        <PrimayBtn type="submit" label={btnName} addClass="long" />
       </form>
     </>
   );

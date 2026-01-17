@@ -20,8 +20,8 @@ const noticeList = [
   },
 ];
 
-export default function Notice({ userRole }: { userRole: string }) {
-  const sliceNum = userRole === "true" ? 3 : noticeList.length;
+export default function Notice({ isAdmin }: { isAdmin: boolean }) {
+  const sliceNum = isAdmin ? 3 : noticeList.length;
   return (
     <CardWrap title="공지사항" src="ic_fill_notice.svg" bg="white">
       <div className={style["notice-wrap"]}>

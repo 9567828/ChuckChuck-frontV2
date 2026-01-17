@@ -1,3 +1,5 @@
+export const tempToken = ["wac4sD7ag6oyBFmSavmD", "hZzfaMvGPkH1jIlqT0eG"];
+
 export interface IUser {
   empCode: string;
   name: string;
@@ -14,6 +16,7 @@ export interface IUser {
   ogarnization: string;
   duty: string;
   level: string;
+  token?: string;
 }
 
 export const tempUser: IUser[] = [
@@ -33,6 +36,7 @@ export const tempUser: IUser[] = [
     ogarnization: "디자인팀",
     duty: "BX 디자이너",
     level: "팀원",
+    token: "hZzfaMvGPkH1jIlqT0eG",
   },
   {
     empCode: "234",
@@ -50,6 +54,7 @@ export const tempUser: IUser[] = [
     ogarnization: "디자인팀",
     duty: "BX 디자이너",
     level: "팀원",
+    token: "wac4sD7ag6oyBFmSavmD",
   },
 ];
 

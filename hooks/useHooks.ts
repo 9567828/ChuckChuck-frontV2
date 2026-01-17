@@ -1,9 +1,7 @@
 "use client";
 
-import { IUser, tempUser } from "@/utils/tempUser";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
-import { useUserQuery } from "./tanstack-query/useQuery/useQuery";
 
 const paths = [
   { href: "/join", title: "이름 / 생년월일" },
@@ -21,8 +19,12 @@ export const useHooks = () => {
     route.push(url);
   };
 
+  const useReplace = (path: string) => {
+    route.replace(path);
+  };
+
   const useRouteBack = () => {
-    if (path === "/join") {
+    if (path === "/auth/join") {
       localStorage.clear();
     }
     route.back();
@@ -38,18 +40,5 @@ export const useHooks = () => {
 
   const isLoginPage = path.startsWith("/auth/login");
 
-  const useUserInfo = () => {
-    const { data, isError } = useUserQuery();
-    const [userInfo, setUserInfo] = useState<IUser | null>(null);
-
-    useEffect(() => {
-      if (!data) return;
-      const existed = tempUser.find((v) => v.email === data);
-      setUserInfo(existed ?? null);
-    }, [data]);
-
-    return userInfo;
-  };
-
-  return { useRoute, getPageName, isLoginPage, useRouteBack, useUserInfo };
+  return { useRoute, getPageName, isLoginPage, useRouteBack, useReplace };
 };

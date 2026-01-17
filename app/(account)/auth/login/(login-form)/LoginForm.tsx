@@ -7,12 +7,12 @@ import Link from "next/link";
 import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import FormMessage from "@/components/ui/form-message/FormMessage";
 import { FormEvent, useState } from "react";
-import { tempUser } from "@/utils/tempUser";
 import { useHooks } from "@/hooks/useHooks";
 import { handleRegex } from "@/utils/regex";
 import { useQueryClient } from "@tanstack/react-query";
 import PasswordBox from "@/components/ui/input-box/PasswordBox";
-import { useCreateMutation } from "@/hooks/tanstack-query/useMutation";
+import { useLoginMutation } from "@/hooks/tanstack-query/useMutation/useMutation";
+import { tempToken } from "@/utils/tempUser";
 
 const findAccount = [
   { href: "/auth/find-id", name: "아이디 찾기" },
@@ -20,9 +20,9 @@ const findAccount = [
 ];
 
 export default function LoginForm() {
-  const { useRoute } = useHooks();
+  const { useReplace } = useHooks();
   const { handleEmailRegex } = handleRegex();
-  const { mutate } = useCreateMutation();
+  const { mutate } = useLoginMutation();
   const queryClient = useQueryClient();
 
   const [email, setEmail] = useState("");
@@ -32,6 +32,8 @@ export default function LoginForm() {
 
   const onSumbit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setMsg("");
 
     const emailRg = handleEmailRegex(email);
 
@@ -50,35 +52,52 @@ export default function LoginForm() {
       return;
     }
 
-    const exist = tempUser.find((v) => v.email === email);
+    const obj = {
+      email,
+      password: pw,
+    };
 
-    if (exist === undefined || exist.password !== pw.trim()) {
-      setMsg("아이디 또는 비밀번호를 확인해주세요.");
-      return;
-    }
-
-    // 로그인 성공
-    if (exist.email === email.trim() || exist.password === pw.trim()) {
-      const { password, ...data } = exist;
-      const userObj = {
-        data,
-      };
-      mutate(userObj, {
-        onSuccess: () => {
-          queryClient.setQueryData(["user"], userObj);
-          document.cookie = `isLogin=true; path=/;`;
-          document.cookie = `userId=${exist.email}; path=/;`;
-          document.cookie = `role=${exist.admin}; path=/; max-age=${60 * 60 * 24 * 7}`;
+    mutate(obj, {
+      onSuccess: (data) => {
+        if (data) {
+          // 토큰저장
+          document.cookie = `token=${data}; path=/;`;
           if (checkedAuto) {
             document.cookie = `autoLogin=true; path=/; max-age=${60 * 60 * 24 * 7}`;
           }
-          useRoute("/");
-        },
-        onError: (error) => {
-          console.log(error);
-        },
-      });
-    }
+          queryClient.invalidateQueries({ queryKey: ["loggedIn"] });
+        }
+        useReplace("/");
+      },
+      onError: (error) => {
+        if (error.message === "not avaliable account") {
+          setMsg("아이디 또는 비밀번호를 확인해주세요.");
+        }
+      },
+    });
+
+    // 로그인 성공
+    // if (exist.email === email.trim() || exist.password === pw.trim()) {
+    //   const { password, ...data } = exist;
+    //   const userObj = {
+    //     data,
+    //   };
+    //   mutate(userObj, {
+    //     onSuccess: () => {
+    //       queryClient.setQueryData(["user"], userObj);
+    //       document.cookie = `isLogin=true; path=/;`;
+    //       document.cookie = `userId=${exist.email}; path=/;`;
+    //       document.cookie = `role=${exist.admin}; path=/; max-age=${60 * 60 * 24 * 7}`;
+    //       if (checkedAuto) {
+    //         document.cookie = `autoLogin=true; path=/; max-age=${60 * 60 * 24 * 7}`;
+    //       }
+    //       useRoute("/");
+    //     },
+    //     onError: (error) => {
+    //       console.log(error);
+    //     },
+    //   });
+    // }
   };
 
   return (

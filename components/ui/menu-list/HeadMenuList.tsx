@@ -4,6 +4,7 @@ import Link from "next/link";
 import style from "./menu.module.scss";
 import { usePathname } from "next/navigation";
 import { useHooks } from "@/hooks/useHooks";
+import { useLoginUserQuery } from "@/hooks/tanstack-query/useQuerys/useQuery";
 
 interface IHeadMenu {
   variant?: "menu-row" | "menu-col";
@@ -22,8 +23,7 @@ export const headerMenuList = [
 
 export default function HeadMenuList({ variant = "menu-row", onClick }: IHeadMenu) {
   const path = usePathname();
-  const { useUserInfo } = useHooks();
-  const user = useUserInfo();
+  const { data: user, isLoading } = useLoginUserQuery();
 
   const isActive = (href: string) => {
     if (href === "/") {

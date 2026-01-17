@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import EditProfile from "./(page-ui)/EditProfile";
+import EditProfile from "./(screen)/EditProfile";
 
 export default function Page() {
   return (

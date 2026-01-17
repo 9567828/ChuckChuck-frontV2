@@ -9,6 +9,7 @@ import { useState } from "react";
 import RequestModal from "@/components/modal/RequestModal";
 import AlarmModal from "@/components/modal/AlarmModal";
 import ProfileModal from "@/components/modal/ProfileModal";
+import { useLoginUserQuery } from "@/hooks/tanstack-query/useQuerys/useQuery";
 
 const iconList = [
   { src: "/imgs/gnb/ic_invite.svg", alt: "요청", id: 1, name: "request" },
@@ -16,8 +17,9 @@ const iconList = [
 ];
 
 export default function Header() {
-  const { useUserInfo, useRoute } = useHooks();
-  const user = useUserInfo();
+  const { useRoute } = useHooks();
+  const { data: user, isLoading } = useLoginUserQuery();
+
   const [isOpen, setIsOpen] = useState(false);
   const [openModal, setOpenModal] = useState<Record<string, boolean>>({
     request: false,
@@ -30,6 +32,8 @@ export default function Header() {
       [modal]: !prev[modal],
     }));
   };
+
+  if (isLoading) return null;
 
   return (
     <div>

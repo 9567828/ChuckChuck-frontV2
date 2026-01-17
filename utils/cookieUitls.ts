@@ -4,10 +4,10 @@ import { useHooks } from "@/hooks/useHooks";
 import { useCookies } from "next-client-cookies";
 import { getCookies } from "next-client-cookies/server";
 
-const cookieList = ["userId", "isLogin", "autoLogin", "role"];
+const cookieList = ["autoLogin", "token"];
 
 export const handleCookie = () => {
-  const { useRoute } = useHooks();
+  const { useReplace } = useHooks();
   const cookieStore = useCookies();
 
   const getCookie = async (name: string) => {
@@ -21,7 +21,7 @@ export const handleCookie = () => {
     cookieList.forEach((v) => {
       cookieStore.remove(v);
     });
-    useRoute("/");
+    useReplace("/");
   };
 
   return { getCookie, handleLogout };

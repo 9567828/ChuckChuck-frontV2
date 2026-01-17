@@ -7,12 +7,11 @@ import { useEffect, useState } from "react";
 import { formatDateToString, formatTimeToString, formatGetHour } from "@/utils/formatDate";
 import { useHooks } from "@/hooks/useHooks";
 import { getHours, getMinutes, hoursToMinutes } from "date-fns";
+import { useLoginUserQuery } from "@/hooks/tanstack-query/useQuerys/useQuery";
 
 export default function Attendance() {
+  const { data: user, isLoading } = useLoginUserQuery();
   const [mounted, setMounted] = useState(false);
-
-  const { useUserInfo } = useHooks();
-  const user = useUserInfo();
 
   const [today] = useState(() => formatDateToString(new Date(), "yMd(a)"));
   const [time, setTime] = useState(() => formatTimeToString(new Date(), "hh:ss:ss"));

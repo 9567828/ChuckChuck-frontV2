@@ -8,11 +8,14 @@ import { useHooks } from "@/hooks/useHooks";
 import MarketingAgree from "@/components/modal/MarketingAgree";
 import { useEffect, useState } from "react";
 import EditPassword from "@/components/modal/EditPassword";
+import { useLoginUserQuery } from "@/hooks/tanstack-query/useQuerys/useQuery";
+import Loading from "@/app/loading";
 
 type modal = "marketing" | "password";
 
-export default function MyProfile({ userId }: { userId: string }) {
+export default function MyProfile() {
   const { useRoute } = useHooks();
+  const { data: user, isLoading } = useLoginUserQuery();
   const [openModal, setOpenModal] = useState<Record<string, boolean>>({
     marketing: false,
     password: false,
@@ -28,29 +31,29 @@ export default function MyProfile({ userId }: { userId: string }) {
     document.body.style.overflow = openModal.marketing || openModal.password ? "hidden" : "auto";
   }, [openModal.marketing, openModal.password]);
 
-  const getUserInfo = tempUser.find((u) => u.email === userId);
-
   const metaList = [
     {
       title: "개인정보",
       value: [
-        { title: "이름", value: getUserInfo?.name },
-        { title: "이메일", value: getUserInfo?.email },
-        { title: "핸드폰번호", value: getUserInfo?.phone },
-        { title: "생일", value: getUserInfo?.birthDate },
+        { title: "이름", value: user?.name },
+        { title: "이메일", value: user?.email },
+        { title: "핸드폰번호", value: user?.phone },
+        { title: "생일", value: user?.birthDate },
       ],
     },
     {
       title: "조직",
       value: [
-        { title: "부서", value: getUserInfo?.ogarnization },
-        { title: "직무", value: getUserInfo?.duty },
-        { title: "직급", value: getUserInfo?.level },
+        { title: "부서", value: user?.ogarnization },
+        { title: "직무", value: user?.duty },
+        { title: "직급", value: user?.level },
       ],
     },
   ];
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <>
       <div>
         <div className={style.container}>
@@ -70,7 +73,7 @@ export default function MyProfile({ userId }: { userId: string }) {
               </ul>
             </div>
           ))}
-          <PrimayBtn addClass="edit" label="수정하기" onClick={() => useRoute(`/mypage/edit?userId=${userId}`)} />
+          <PrimayBtn addClass="edit" label="수정하기" onClick={() => useRoute(`/mypage/edit?userId=${user?.email}`)} />
         </div>
 
         <div className={style["terms-wrap"]}>
@@ -80,7 +83,7 @@ export default function MyProfile({ userId }: { userId: string }) {
         </div>
       </div>
       {openModal.marketing && <MarketingAgree onClose={() => handleModal("marketing")} />}
-      {openModal.password && <EditPassword userId={userId} onClose={() => handleModal("password")} />}
+      {openModal.password && <EditPassword userId={user?.email!} onClose={() => handleModal("password")} />}
     </>
   );
 }

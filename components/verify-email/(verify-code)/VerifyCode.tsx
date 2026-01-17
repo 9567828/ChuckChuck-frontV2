@@ -7,7 +7,11 @@ import style from "./code.module.scss";
 import PrimayBtn from "@/components/ui/buttons/PrimaryBtn";
 import { useHooks } from "@/hooks/useHooks";
 
-export default function VerifyCode() {
+interface ICode {
+  mode: "join" | "find-pw";
+}
+
+export default function VerifyCode({ mode }: ICode) {
   const { useRoute } = useHooks();
   const [timeLeft, setTimeLeft] = useState(120);
   const [time, setTime] = useState("02:00");
@@ -27,7 +31,11 @@ export default function VerifyCode() {
     if (!codeValue.trim().includes(tempCode)) {
       setMsg("인증번호가 일치하지 않습니다.");
     } else {
-      useRoute("/auth/join/password");
+      if (mode === "join") {
+        useRoute("/auth/join/password");
+      } else {
+        useRoute("/auth/find-pw/reset-pw");
+      }
     }
   };
 
