@@ -23,7 +23,7 @@ export default function ResultPage() {
 
   const goToLogin = () => {
     localStorage.clear();
-    useRoute("/login");
+    useRoute("/auth/login");
   };
 
   return (

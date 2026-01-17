@@ -1,3 +1,5 @@
+@use "../../../../../styles/abastract/index.scss" as *;
+
 .form {
   @include flex(column, center, null, 16px);
   padding: 16px 0;

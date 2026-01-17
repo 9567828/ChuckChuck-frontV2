@@ -1,3 +1,5 @@
+@use "../../../styles/abastract/index.scss" as *;
+
 .picker-wrap {
   width: 100%;
   @include flex($justi: space-between, $align: center);

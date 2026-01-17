@@ -10,7 +10,7 @@ export default function BackBtn({ ...props }: IBtn) {
 
   const pageRoute = () => {
     if (isLoginPage) {
-      useRoute("/join");
+      useRoute("/auth/join");
     } else {
       useRouteBack();
     }

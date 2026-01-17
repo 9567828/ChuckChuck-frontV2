@@ -39,7 +39,7 @@ export default function VerifyEmail({ defaultMsg, btnName, isValid = false, mode
         setMsg("이미 존재하는 이메일 입니다.");
       } else {
         localStorage.setItem("email", email);
-        useRoute(`/join/verify-email/code`);
+        useRoute(`/auth/join/verify-email/code`);
       }
     } else {
       if (existed?.email === email) {

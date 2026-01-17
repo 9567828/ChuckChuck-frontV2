@@ -27,7 +27,7 @@ export default function VerifyCode() {
     if (!codeValue.trim().includes(tempCode)) {
       setMsg("인증번호가 일치하지 않습니다.");
     } else {
-      useRoute("/join/password");
+      useRoute("/auth/join/password");
     }
   };
 

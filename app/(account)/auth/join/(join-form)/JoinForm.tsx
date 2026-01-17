@@ -101,7 +101,7 @@ export default function JoinForm() {
     localStorage.setItem("name", inputName);
     localStorage.setItem("birth", birthDay);
 
-    useRoute("/join/verify-email");
+    useRoute("/auth/join/verify-email");
   };
 
   useEffect(() => {

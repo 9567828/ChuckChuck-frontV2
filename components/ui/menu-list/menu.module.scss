@@ -1,3 +1,5 @@
+@use "../../../styles/abastract/index.scss" as *;
+
 .menu-row {
   @include flex(null, center, center, 8px);
   padding: 11.5px 12px;

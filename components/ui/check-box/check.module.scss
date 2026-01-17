@@ -1,3 +1,5 @@
+@use "../../../styles/abastract/index.scss" as *;
+
 .container {
   @include flex(null, null, center, 12px);
 }

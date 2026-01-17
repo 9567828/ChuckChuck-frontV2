@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../styles/global-style.ts";
+import "@/styles/common.scss";
 import QueryProvider from "./QueryProvider";
 import { Suspense } from "react";
 import Loading from "./loading";

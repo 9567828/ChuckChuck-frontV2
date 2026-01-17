@@ -10,7 +10,7 @@ interface IState {
     date?: string,
     startDate?: string,
     endDate?: string,
-    period?: "일" | "주" | "월"
+    period?: "일" | "주" | "월",
   ) => void;
 }
 
@@ -58,7 +58,7 @@ export const useCurrentEmpWorkStore = create<IState>((set) => ({
       const allData = tempAllEmpsLog;
 
       const targetEmp = allData.filter(
-        (v) => v.name === name || (v.department === department && v.workLog.find((d) => d.date && d.date === date))
+        (v) => v.name === name || (v.department === department && v.workLog.find((d) => d.date && d.date === date)),
       );
 
       if (!targetEmp) {

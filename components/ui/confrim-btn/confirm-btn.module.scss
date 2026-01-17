@@ -1,3 +1,5 @@
+@use "../../../styles/abastract/index.scss" as *;
+
 .btn-wrap {
   @include flex(null, null, center, 4px);
 }

@@ -1,3 +1,6 @@
+@use "./base/reset" as *;
+@use "./abastract/index.scss" as *;
+
 .inner {
   padding: 106px 40px 40px;
   height: 100%;

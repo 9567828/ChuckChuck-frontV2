@@ -1,3 +1,5 @@
+@use "../../../../styles/abastract/index.scss" as *;
+
 .list-wrap {
   @include flex(column, center, null, 8px);
   margin-bottom: 4px;

@@ -1,4 +1,6 @@
-.primary {
+@use "../../../styles/abastract/index.scss" as *;
+
+.primary-btn {
   height: 64px;
   @include flex(null, center, center, 10px);
   padding: 18px 32px;
@@ -7,7 +9,7 @@
   @include font-theme($bodyMd, $b);
   background-color: $main-color;
   color: $bg-white;
-  &:hover:not(.secondary, .google) {
+  &:hover:not(.secondary-btn, .google-btn) {
     background-color: $main-hover-color;
   }
   &.long {
@@ -29,8 +31,8 @@
   }
 }
 
-.secondary {
-  @extend .primary;
+.secondary-btn {
+  @extend .primary-btn;
   background-color: $bg-white;
   color: $bg-black;
   border: 1px solid $gray-600;
@@ -39,8 +41,8 @@
   }
 }
 
-.google {
-  @extend .primary;
+.google-btn {
+  @extend .primary-btn;
   background-color: $bg-white;
   color: $bg-black;
   width: 520px;

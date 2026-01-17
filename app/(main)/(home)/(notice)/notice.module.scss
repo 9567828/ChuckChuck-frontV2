@@ -1,3 +1,5 @@
+@use "../../../../styles/abastract/index.scss" as *;
+
 .notice-wrap {
   @include flex(column, center, null, 16px);
 }

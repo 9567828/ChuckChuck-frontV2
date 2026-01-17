@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const res = NextResponse.next();
 
   const isLogin = req.cookies.get("isLogin")?.value === "true";
@@ -8,7 +8,7 @@ export async function middleware(req: NextRequest) {
   const autoLogin = req.cookies.get("autoLogin")?.value === "true";
 
   const { pathname } = req.nextUrl;
-  const redirectUrl = new URL("/login", req.url);
+  const redirectUrl = new URL("/auth/login", req.url);
 
   if (!isLogin && pathname === "/") {
     res.cookies.delete("isLogin");
@@ -25,7 +25,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(redirectUrl);
   }
 
-  if (isLogin && pathname === "/login") {
+  if (isLogin && pathname === "/auth/login") {
     return NextResponse.redirect(new URL("/", req.url));
   }
 

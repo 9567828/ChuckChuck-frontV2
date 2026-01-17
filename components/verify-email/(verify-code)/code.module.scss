@@ -1,3 +1,5 @@
+@use "../../../styles/abastract/index.scss" as *;
+
 .input-wrap {
   @include flex(column, center, center, 16px);
   padding-top: 16px;

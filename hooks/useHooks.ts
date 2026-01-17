@@ -36,21 +36,7 @@ export const useHooks = () => {
     }
   };
 
-  const queryToString = (paramName: string): string | null => {
-    const raw = searchParams.get(paramName);
-    if (!raw) return null; // null 또는 빈값 방어
-
-    try {
-      const decoded = decodeURIComponent(raw.trim()); // URL 인코딩 해제 + 공백 제거
-      if (decoded === "") return null; // 공백만 있을 경우 무효 처리
-      return decoded;
-    } catch (err) {
-      console.error(`Invalid query param: ${paramName}`, err);
-      return null; // 디코딩 실패 시 안전하게 null 반환
-    }
-  };
-
-  const isLoginPage = path.startsWith("/login");
+  const isLoginPage = path.startsWith("/auth/login");
 
   const useUserInfo = () => {
     const { data, isError } = useUserQuery();
@@ -65,5 +51,5 @@ export const useHooks = () => {
     return userInfo;
   };
 
-  return { useRoute, getPageName, isLoginPage, useRouteBack, queryToString, useUserInfo };
+  return { useRoute, getPageName, isLoginPage, useRouteBack, useUserInfo };
 };

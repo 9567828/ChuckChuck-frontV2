@@ -1,3 +1,5 @@
+@use "../../../../../../styles/abastract/index.scss" as *;
+
 .find-btn {
   @include flex(null, center, center, 2px);
   padding: 0 6px;

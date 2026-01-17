@@ -1,3 +1,5 @@
+@use "../../../../../../styles/abastract/index.scss" as *;
+
 .info {
   @include font-theme($bodySm, $m);
   margin-bottom: 53px;

@@ -1,3 +1,5 @@
+@use "../../../../styles/abastract/index.scss" as *;
+
 .container {
   @include flex(column, $gap: 24px);
 }

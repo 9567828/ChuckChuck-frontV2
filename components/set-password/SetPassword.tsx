@@ -60,12 +60,12 @@ export default function SetPassword({ mode }: ISetPw) {
         password: hashedPw,
         // joinDate: Date.now()
       };
-      useRoute("/join/request-join");
+      useRoute("/auth/join/request-join");
     }
 
     if (mode === "reset") {
       // 비밀번호 재설정일때
-      useRoute("/login");
+      useRoute("/auth/login");
     }
   };
 
