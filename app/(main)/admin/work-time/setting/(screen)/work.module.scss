@@ -1,0 +1,32 @@
+.layout {
+  width: 100%;
+  padding: 24px 0;
+  border-bottom: 1px solid $gray-200;
+}
+
+.grid {
+  @include grid-col(120px 1fr, $gap: 85px);
+}
+
+.raido-wrap {
+  @include flex(column, null, null, 8px);
+}
+
+.radio-box {
+  @include flex(null, null, flex-start, 13px);
+  padding: 4px 0;
+}
+
+.sub-txt {
+  @include font-theme($captionXxs, $m);
+  color: $gray-500;
+}
+
+.edit-btn {
+  @include font-theme($captionXxs, $m);
+  color: $gray-600;
+  width: 64px;
+  height: 24px;
+  border: 1px solid $gray-600;
+  border-radius: 4px;
+}

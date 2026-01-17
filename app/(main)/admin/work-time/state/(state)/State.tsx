@@ -5,9 +5,8 @@ import style from "./state.module.scss";
 import PeriodDatePicker from "@/components/ui/period-date-picker/PeriodDatePicker";
 import SelectBox from "@/components/ui/select-box/SelectBox";
 import InputBox from "@/components/ui/input-box/InputBox";
-import SummaryBox from "./SummaryBox";
 import StateList from "./StateList";
-import { IEmpWorkTime, tempAllEmpsLog, tempDepartmentList, tempEmpWorkLogs } from "@/utils/tempUser";
+import { tempDepartmentList } from "@/utils/tempUser";
 import { FormEvent, useEffect, useState } from "react";
 import { useCurrentEmpWorkStore } from "@/hooks/zustand/useCurrentEmpWorkStore";
 

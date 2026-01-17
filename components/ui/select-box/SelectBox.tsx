@@ -16,7 +16,7 @@ export default function SelectBox({ variant = "round", defaultValue, optionList,
   // const [selectItem, setSelectItem] = useState("");
 
   return (
-    <>
+    <div>
       <div
         className={`${style["select-wrap"]} ${variant === "square" ? style["square-wrap"] : ""} ${
           variant === "square" && click ? style.active : ""
@@ -44,6 +44,7 @@ export default function SelectBox({ variant = "round", defaultValue, optionList,
               return (
                 <li
                   key={i}
+                  id={v}
                   className={`${variant === "square" ? style["option-value"] : ""} ${isTrue ? style.active : ""}`.trim()}
                   onMouseDown={onChangeOption}
                 >
@@ -55,6 +56,6 @@ export default function SelectBox({ variant = "round", defaultValue, optionList,
         ) : null}
       </div>
       {variant === "square" && click && <div style={{ height: "33px" }}></div>}
-    </>
+    </div>
   );
 }
